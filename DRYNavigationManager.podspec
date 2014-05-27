@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DRYNavigationManager"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Navigation manager to separate navigation logic from you core app code, when not using StoryBoards."
   s.description      = <<-DESC
                        In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://bitbucket.org/idamediafoundry/drynavigationmanager"
   s.license          = 'MIT'
   s.author           = { "Michael Seghers" => "michael.seghers@ida-mediafoundry.be", "Bart Vandeweerdt" => "bart.vandeweerdt@ida-mediafoundry.be" }
-  s.source           = { :git => "https://mikeseghers@bitbucket.org/idamediafoundry/drynavigationmanager.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://bitbucket.org/idamediafoundry/drynavigationmanager.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/iDAMediaFoundry'
 
   s.platform     = :ios, '5.0'
