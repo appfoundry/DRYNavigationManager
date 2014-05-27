@@ -1,6 +1,8 @@
 # DRYNavigationManager
 
-Proof-of-concept for the navigation manager. In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
+In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
+
+Code is taken and adapted from https://bitbucket.org/idamediafoundry/navigation-manager-poc
 
 ## Usage
 
@@ -15,11 +17,6 @@ it, simply add the following line to your Podfile:
 
     pod "DRYNavigationManager"
 
-## Author
-
-Michael Seghers, michael.seghers@ida-mediafoundry.be
-
 ## License
 
 DRYNavigationManager is available under the MIT license. See the LICENSE file for more info.
-
