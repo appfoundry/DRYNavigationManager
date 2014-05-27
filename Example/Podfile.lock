@@ -1,0 +1,23 @@
+PODS:
+  - DRYNavigationManager (0.1.0)
+  - OCHamcrest (3.0.1)
+  - OCMockito (1.2.0):
+    - OCHamcrest (~> 3.0)
+  - Reliant (1.1.0)
+
+DEPENDENCIES:
+  - DRYNavigationManager (from `../`)
+  - OCMockito
+  - Reliant
+
+EXTERNAL SOURCES:
+  DRYNavigationManager:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DRYNavigationManager: fa2a4f5b62bf4524adfbe7dee48f14cb9f918ee4
+  OCHamcrest: 207233b7d7a44dadd66aca398947cc7e029c9be5
+  OCMockito: e4b9564b2b9165a143fd54a41dbfb55595699624
+  Reliant: f74dbdb18d90620180a60d4b1c962a36cc354ff1
+
+COCOAPODS: 0.33.1

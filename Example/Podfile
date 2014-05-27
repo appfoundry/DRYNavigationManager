@@ -1,12 +1,11 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '7.0'
+platform :ios, '7.0'
 
-target "Demo" do
+target "DRYNavigationManagerDemo" do
   pod "DRYNavigationManager", :path => "../"
+  pod "Reliant"
 end
 
-# Uncomment the following lines to add testing dependencies
-# target "DemoTests" do
-#   pod 'Expecta'
-# end
+target "DRYNavigationManagerDemoTests" do
+  pod 'OCMockito'
+end
 
