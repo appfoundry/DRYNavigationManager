@@ -1,8 +1,6 @@
 # DRYNavigationManager
 
-[![Version](https://img.shields.io/cocoapods/v/DRYNavigationManager.svg?style=flat)](http://cocoadocs.org/docsets/DRYNavigationManager)
-[![License](https://img.shields.io/cocoapods/l/DRYNavigationManager.svg?style=flat)](http://cocoadocs.org/docsets/DRYNavigationManager)
-[![Platform](https://img.shields.io/cocoapods/p/DRYNavigationManager.svg?style=flat)](http://cocoadocs.org/docsets/DRYNavigationManager)
+Proof-of-concept for the navigation manager. In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
 
 ## Usage
 
