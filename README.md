@@ -2,8 +2,6 @@
 
 In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
 
-Code is taken and adapted from https://bitbucket.org/idamediafoundry/navigation-manager-poc
-
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
