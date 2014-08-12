@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DRYNavigationManager"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "Navigation manager to separate navigation logic from you core app code, when not using StoryBoards."
   s.description      = <<-DESC
                        In StoryBoard-less projects, this small framework should help out in separating the navigation code from the actual view controller code, much like segues enable this when using story boards.
