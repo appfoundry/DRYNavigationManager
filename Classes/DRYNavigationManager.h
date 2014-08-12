@@ -12,5 +12,6 @@
 - (UIViewController *)rootViewControllerForFlow:(id)flowIdentifier;
 
 - (void)navigateFromViewController:(UIViewController *)controller withIdentifier:(NSString *)identifier withUserInfo:(NSDictionary *)userInfo;
+- (void)unwindViewController:(UIViewController *)controller;
 
 @end

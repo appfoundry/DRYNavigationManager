@@ -6,6 +6,7 @@
 #import "AppNavigationHelper.h"
 #import "MainViewController.h"
 #import "InTabViewController.h"
+#import "ModalViewController.h"
 
 
 @implementation AppNavigationHelper
@@ -37,6 +38,17 @@
 
     [helloVC.navigationController pushViewController:tabBarController animated:YES];
 }
+
+- (void)toModalFrom:(UIViewController *)presentingViewController withUserInfo:(NSDictionary *) userInfo {
+    ModalViewController *modalViewController = [[ModalViewController alloc] init];
+
+    [presentingViewController presentViewController:modalViewController animated:YES completion:nil];
+}
+
+- (void)didDismissModalViewController:(UIViewController *)viewController toPresenter:(UIViewController *)presenter {
+    NSLog(@"Auto dismiss!");
+}
+
 
 
 @end

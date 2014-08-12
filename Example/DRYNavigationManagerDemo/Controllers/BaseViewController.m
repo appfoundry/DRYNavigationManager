@@ -20,6 +20,13 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(label);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[label]-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[label]-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+- (IBAction)didTapView:(UIView *)view {
+    //Implemented by specific class
 }
 
 

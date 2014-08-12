@@ -4,14 +4,26 @@
 //
 
 #import "InTabViewController.h"
+#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "UIViewController+Reliant.h"
 
+@interface InTabViewController ()
+
+@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+
+@end
 
 @implementation InTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self injectSelf];
      self.label.text = [NSString stringWithFormat:@"Tab %i", [self.tabBarController.viewControllers indexOfObject:self] + 1];
 
+}
+
+- (void)didTapView:(UIView *)view {
+    [_navigationManager navigateFromViewController:self withIdentifier:@"toModal" withUserInfo:nil];
 }
 
 @end

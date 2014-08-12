@@ -35,4 +35,23 @@
     }
 }
 
+- (void)unwindViewController:(UIViewController *)viewController {
+    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"unwindFrom%@:", NSStringFromClass([viewController class])]);
+    if ([_navigationHelper respondsToSelector:sel]) {
+        IMP imp = [_navigationHelper methodForSelector:sel];
+        void (*func)(id, SEL, UIViewController *) = (void *) imp;
+        func(_navigationHelper, sel, viewController);
+    } else {
+        UIViewController *presenter = viewController.presentingViewController;
+        [presenter dismissViewControllerAnimated:YES completion:^{
+            SEL unwindSelector =  NSSelectorFromString([NSString stringWithFormat:@"didDismiss%@:toPresenter:", NSStringFromClass([viewController class])]);
+            if ([_navigationHelper respondsToSelector:unwindSelector]) {
+                IMP imp = [_navigationHelper methodForSelector:unwindSelector];
+                void (*func)(id, SEL, UIViewController *, UIViewController *) = (void *) imp;
+                func(_navigationHelper, sel, viewController, presenter);
+            }
+        }];
+    }
+}
+
 @end
