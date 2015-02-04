@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self injectSelf];
-     self.label.text = [NSString stringWithFormat:@"Tab %i", [self.tabBarController.viewControllers indexOfObject:self] + 1];
+     self.label.text = [NSString stringWithFormat:@"Tab %lu", [self.tabBarController.viewControllers indexOfObject:self] + 1];
 
 }
 

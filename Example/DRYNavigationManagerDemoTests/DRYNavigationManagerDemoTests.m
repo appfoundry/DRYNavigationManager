@@ -42,7 +42,7 @@
     NSDictionary *userInfo = @{@"key": @"value"};
     [_mgr navigateFromViewController:vc withIdentifier:@"toDetail" withUserInfo:userInfo];
     
-    assertThatBool(called, is(equalToBool(YES)));
+    assertThatBool(called, isTrue());
     assertThat(recordedVC, is(equalTo(vc)));
     assertThat(recorededUserInfo, is(equalTo(userInfo)));
 }

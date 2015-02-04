@@ -6,7 +6,6 @@
 #import "DRYBaseNavigationManager.h"
 #import "DRYNavigationHelper.h"
 
-
 @interface DRYBaseNavigationManager () {
     NSObject<DRYNavigationHelper> *_navigationHelper;
 }

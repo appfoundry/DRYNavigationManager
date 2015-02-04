@@ -6,15 +6,13 @@
 //  Copyright (c) 2014 AppFoundry. All rights reserved.
 //
 
-#import <Reliant/OCSApplicationContext.h>
-#import <Reliant/OCSConfiguratorFromClass.h>
+#import <Reliant/Reliant.h>
 #import <DRYNavigationManager/DRYNavigationManager.h>
-
 #import "AppDelegate.h"
 #import "AppConfiguration.h"
 
 @interface AppDelegate () {
-    OCSApplicationContext *_context;
+    OCSObjectContext *_context;
 }
 @end
 
@@ -22,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     id <OCSConfigurator> configurator = [[OCSConfiguratorFromClass alloc] initWithClass:[AppConfiguration class]];
-    _context = [[OCSApplicationContext alloc] initWithConfigurator:configurator];
+    _context = [[OCSObjectContext alloc] initWithConfigurator:configurator];
     [_context start];
 
     id <DRYNavigationManager> navigationManager = [_context objectForKey:@"navigationManager"];
