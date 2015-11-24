@@ -43,6 +43,7 @@
     id <DRYNavigationClassProtocol> navigationClass = (id <DRYNavigationClassProtocol>) [[NSClassFromString(descriptor.className) alloc] init];
     if (!navigationClass) {
         completionHandler(NO, [NSError navigationClassCreationError]);
+        return;
     }
     if (![navigationClass conformsToProtocol:@protocol(DRYNavigationClassProtocol)]) {
         completionHandler(NO, [NSError navigationClassImplementationError]);
