@@ -6,7 +6,7 @@
 @import Foundation;
 @import UIKit;
 
-@protocol DRYNavigationClassProtocol <NSObject>
+@protocol DRYNavigationClass <NSObject>
 
 - (void)hasAccessWithParameters:(NSDictionary *)parameters completionHandler:(void (^)(BOOL hasAccess, NSError *error))completionHandler;
 

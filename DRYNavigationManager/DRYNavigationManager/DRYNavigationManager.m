@@ -7,7 +7,7 @@
 #import "DRYNavigationTranslationDataSource.h"
 #import "DRYNavigationDescriptor.h"
 #import "NSError+DRYNavigationManager.h"
-#import "DRYNavigationClassProtocol.h"
+#import "DRYNavigationClass.h"
 
 @interface DRYNavigationManager ()
 
@@ -40,53 +40,57 @@
 }
 
 - (void)navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
-    id <DRYNavigationClassProtocol> navigationClass = (id <DRYNavigationClassProtocol>) [[NSClassFromString(descriptor.className) alloc] init];
+    void (^completionHandlerNotNil)(BOOL, NSError*) = ^void(BOOL success, NSError *error) {
+        if(completionHandler){
+            completionHandler(success, error);
+        }
+    };
+
+    id <DRYNavigationClass> navigationClass = (id <DRYNavigationClass>) [[NSClassFromString(descriptor.className) alloc] init];
     if (!navigationClass) {
-        completionHandler(NO, [NSError navigationClassCreationError]);
+        completionHandlerNotNil(NO, [NSError navigationClassCreationError]);
         return;
     }
-    if (![navigationClass conformsToProtocol:@protocol(DRYNavigationClassProtocol)]) {
-        completionHandler(NO, [NSError navigationClassImplementationError]);
+    if (![navigationClass conformsToProtocol:@protocol(DRYNavigationClass)]) {
+        completionHandlerNotNil(NO, [NSError navigationClassImplementationError]);
         return;
     }
 
-    [self _checkAccessAndNavigateWhenAllowedWithDescriptor:descriptor hostViewController:hostViewController completionHandler:completionHandler navigationClass:navigationClass];
+    [self _checkAccessAndNavigateWhenAllowedWithDescriptor:descriptor hostViewController:hostViewController navigationClass:navigationClass completionHandler:completionHandlerNotNil];
 }
 
 - (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL success, NSError *error))completionHandler {
+    void (^completionHandlerNotNil)(BOOL, NSError*) = ^void(BOOL success, NSError *error) {
+        if(completionHandler){
+            completionHandler(success, error);
+        }
+    };
+
     NSError *error;
     DRYNavigationDescriptor *descriptor = [self createNavigationDescriptorWithNavigationIdentifier:identifier parameters:parameters error:&error];
     if (error) {
-        completionHandler(NO, error);
+        completionHandlerNotNil(NO, error);
     } else {
         [self navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController completionHandler:^(BOOL success, NSError *error) {
-            completionHandler(success, error);
+            completionHandlerNotNil(success, error);
         }];
     }
 }
 
-- (void)_checkAccessAndNavigateWhenAllowedWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL, NSError *))completionHandler navigationClass:(id <DRYNavigationClassProtocol>)navigationClass {
+- (void)_checkAccessAndNavigateWhenAllowedWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController navigationClass:(id <DRYNavigationClass>)navigationClass completionHandler:(void (^)(BOOL, NSError *))completionHandler {
     [navigationClass hasAccessWithParameters:descriptor.parameters completionHandler:^(BOOL hasAccess, NSError *error) {
         if (!hasAccess) {
-            if (error) {
-                completionHandler(NO, error);
-            } else {
-                completionHandler(NO, [NSError noAccessToNavigationPathError]);
-            }
+            completionHandler(NO, error ? : [NSError noAccessToNavigationPathError]);
         } else {
             [self _navigateWithDescriptor:descriptor hostViewController:hostViewController completionHandler:completionHandler navigationClass:navigationClass];
         }
     }];
 }
 
-- (void)_navigateWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL, NSError *))completionHandler navigationClass:(id <DRYNavigationClassProtocol>)navigationClass {
+- (void)_navigateWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL, NSError *))completionHandler navigationClass:(id <DRYNavigationClass>)navigationClass {
     [navigationClass navigateWithParameters:descriptor.parameters hostViewController:hostViewController completionHandler:^(BOOL success, NSError *error) {
         if (!success) {
-            if (error) {
-                completionHandler(NO, error);
-            } else {
-                completionHandler(NO, [NSError canNotNavigateError]);
-            }
+            completionHandler(NO, error ? : [NSError canNotNavigateError]);
         } else {
             completionHandler(YES, nil);
         }
