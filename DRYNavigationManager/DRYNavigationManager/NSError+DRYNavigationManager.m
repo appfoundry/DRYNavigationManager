@@ -19,8 +19,15 @@ NSString *const kDRYNavigationManagerErrorDomain = @"be.appfoundry.errorDomain.D
 
 + (NSError *)dataSourceUnavailableError {
     return [NSError errorWithLocalizedDescription:@"DRYNavigationTranslationDataSource can't be messaged"
-                                  localizedReason:@"DRYNavigationTranslationDataSource is nil or method being called isn't implemented"
+                                  localizedReason:@"DRYNavigationTranslationDataSource is nil"
                                         errorType:DRYNavigationManagerErrorDataSourcesUnavailable
+                                         userInfo:nil];
+}
+
++ (NSError *)dataSourceImplementationError {
+    return [NSError errorWithLocalizedDescription:@"DRYNavigationTranslationDataSource can't be messaged"
+                                  localizedReason:@"DRYNavigationTranslationDataSource method being called isn't implemented"
+                                        errorType:DRYNavigationManagerErrorDataSourcesImplementation
                                          userInfo:nil];
 }
 

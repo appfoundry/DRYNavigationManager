@@ -7,6 +7,7 @@
 
 typedef NS_ENUM(NSInteger, DRYNavigationManagerError) {
     DRYNavigationManagerErrorDataSourcesUnavailable = 101,
+    DRYNavigationManagerErrorDataSourcesImplementation = 102,
 
     DRYNavigationManagerErrorNavigationClassCreation = 201,
     DRYNavigationManagerErrorNavigationClassImplementation = 202,
@@ -19,6 +20,8 @@ typedef NS_ENUM(NSInteger, DRYNavigationManagerError) {
 @interface NSError (DRYNavigationManager)
 
 + (NSError *)dataSourceUnavailableError;
+
++ (NSError *)dataSourceImplementationError;
 
 + (NSError *)navigationClassCreationError;
 

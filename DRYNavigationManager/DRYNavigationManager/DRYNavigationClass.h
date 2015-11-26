@@ -6,10 +6,13 @@
 @import Foundation;
 @import UIKit;
 
+typedef void (^DRYNavigationErrorHandler)(NSError *);
+typedef void (^DRYNavigationSuccessHandler)();
+
 @protocol DRYNavigationClass <NSObject>
 
-- (void)hasAccessWithParameters:(NSDictionary *)parameters completionHandler:(void (^)(BOOL hasAccess, NSError *error))completionHandler;
+- (void)hasAccessWithParameters:(NSDictionary *)parameters errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
 
-- (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController completionHandler:(void (^)(BOOL success, NSError *error))completionHandler;
+- (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
 
 @end
