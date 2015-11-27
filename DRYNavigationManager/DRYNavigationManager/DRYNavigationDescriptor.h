@@ -9,7 +9,7 @@
 
 @property(nonatomic, strong, readonly) NSString *className;
 
-@property(nonatomic, strong, readonly) NSDictionary *parameters;
+@property(nonatomic, copy, readonly) NSDictionary *parameters;
 
 - (instancetype)initWithClassName:(NSString *)className parameters:(NSDictionary *)parameters;
 

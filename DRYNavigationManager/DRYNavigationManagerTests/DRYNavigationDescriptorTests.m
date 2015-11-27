@@ -26,12 +26,12 @@
 
 - (void)testCreatingADescriptor {
     DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:@"DummyClassName" parameters:@{@"testKey":@"valueKey"}];
-    XCTAssertNotNil(descriptor,@"");
+    XCTAssertNotNil(descriptor);
 }
 
 - (void)testCreatingADescriptorConvencience {
     DRYNavigationDescriptor *descriptor = [DRYNavigationDescriptor descriptorWithClassName:@"DummyClassName" parameters:@{@"testKey":@"valueKey"}];
-    XCTAssertNotNil(descriptor,@"");
+    XCTAssertNotNil(descriptor);
 }
 
 - (void)testAddingParameterToDescriptorWithoutParameters {
@@ -40,7 +40,7 @@
     NSString *keyToAdd = @"ADDED_KEY_PARAMETER";
     [descriptor addParameter:valueToAdd forKey:keyToAdd];
     NSString *valueAdded = descriptor.parameters[keyToAdd];
-    XCTAssertTrue([valueAdded isEqualToString:valueToAdd],@"");
+    XCTAssertEqualObjects(valueAdded, valueToAdd);
 }
 
 - (void)testAddingParameterToDescriptorWithEmptyParameters {
@@ -49,7 +49,7 @@
     NSString *keyToAdd = @"ADDED_KEY_PARAMETER";
     [descriptor addParameter:valueToAdd forKey:keyToAdd];
     NSString *valueAdded = descriptor.parameters[keyToAdd];
-    XCTAssertTrue([valueAdded isEqualToString:valueToAdd],@"");
+    XCTAssertEqualObjects(valueAdded, valueToAdd);
 }
 
 - (void)testAddingParameterToDescriptorWithParameters {
@@ -58,7 +58,7 @@
     NSString *keyToAdd = @"ADDED_KEY_PARAMETER";
     [descriptor addParameter:valueToAdd forKey:keyToAdd];
     NSString *valueAdded = descriptor.parameters[keyToAdd];
-    XCTAssertTrue([valueAdded isEqualToString:valueToAdd],@"");
+    XCTAssertEqualObjects(valueAdded, valueToAdd);
 }
 
 - (void)testAddingMutlipleParametersToDescriptor {
@@ -70,30 +70,30 @@
     [descriptor addParameters:@{keyToAddOne : valueToAddOne, keyToAddTwo : valueToAddTwo}];
     NSString *valueAddedOne = descriptor.parameters[keyToAddOne];
     NSString *valueAddedTwo = descriptor.parameters[keyToAddTwo];
-    XCTAssertTrue([valueAddedOne isEqualToString:valueToAddOne],@"");
-    XCTAssertTrue([valueAddedTwo isEqualToString:valueToAddTwo],@"");
+    XCTAssertEqualObjects(valueAddedOne, valueToAddOne);
+    XCTAssertEqualObjects(valueAddedTwo, valueToAddTwo);
 }
 
 -(void)testRemovingParameterFromDescriptorWithEmptyParametes {
     DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:@"DummyClassName" parameters:@{}];
     NSString *keyToRemove = @"REMOVED_KEY_PARAMETER_ONE";
     [descriptor removeParameterForKey:keyToRemove];
-    XCTAssertTrue(descriptor.parameters.allKeys.count == 0,@"");
+    XCTAssertTrue(descriptor.parameters.allKeys.count == 0);
 }
 
 -(void)testRemovingParameterFromDescriptorWithoutParameters {
     DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:@"DummyClassName" parameters:nil];
     NSString *keyToRemove = @"REMOVED_KEY_PARAMETER_ONE";
     [descriptor removeParameterForKey:keyToRemove];
-    XCTAssertTrue(descriptor.parameters.allKeys.count == 0,@"");
+    XCTAssertEqual(descriptor.parameters.allKeys.count, 0);
 }
 
 -(void)testRemovingParameterFromDescriptorWithParameters {
     DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:@"DummyClassName" parameters:@{@"testKey":@"valueKey",@"testKey2":@"valueKey2"}];
     NSString *keyToRemove = @"testKey2";
     [descriptor removeParameterForKey:keyToRemove];
-    XCTAssertTrue(descriptor.parameters.allKeys.count == 1,@"");
-    XCTAssertNil(descriptor.parameters[keyToRemove],  @"");
+    XCTAssertEqual(descriptor.parameters.allKeys.count, 1);
+    XCTAssertNil(descriptor.parameters[keyToRemove]);
 }
 
 -(void)testRemovingParametersFromDescriptorWithParameters {
@@ -101,11 +101,25 @@
     NSString *keyToRemove2 = @"testKey2";
     NSString *keyToRemove = @"testKey";
     [descriptor removeParameters:@[keyToRemove,keyToRemove2]];
-    XCTAssertTrue(descriptor.parameters.allKeys.count == 0,@"");
+    XCTAssertEqual(descriptor.parameters.allKeys.count, 0);
 }
 
+-(void)testParametersDictionaryIsCopy {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObject:@"testValue" forKey:@"testKey"];
+    DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:@"DummyClassName" parameters:parameters];
 
+    XCTAssertNotEqual(parameters, descriptor.parameters); //Not equal as in !=
+}
 
+- (void)testInitializerFailsOnNilClass {
+    DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] initWithClassName:nil parameters:nil];
+    XCTAssertNil(descriptor);
+}
+
+- (void)testDefaultInitializerFails {
+    DRYNavigationDescriptor *descriptor = [[DRYNavigationDescriptor alloc] init];
+    XCTAssertNil(descriptor);
+}
 
 
 

@@ -21,7 +21,7 @@
     if (self) {
         _navigationTranslationDataSource = navigationTranslationDataSource;
     }
-
+    
     return self;
 }
 
@@ -41,55 +41,45 @@
 }
 
 - (void)navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
-    DRYNavigationSuccessHandler successHandlerNotNil;
-    DRYNavigationErrorHandler errorHandlerNotNil;
-    [self _createNonNilHandlers:errorHandler successHandler:successHandler successHandlerNotNil:&successHandlerNotNil errorHandlerNotNil:&errorHandlerNotNil];
-
     id <DRYNavigationClass> navigationClass = (id <DRYNavigationClass>) [[NSClassFromString(descriptor.className) alloc] init];
     if (!navigationClass) {
-        errorHandlerNotNil([NSError navigationClassCreationError]);
+        [self _callErrorHandlerBlock:errorHandler error:[NSError navigationClassCreationError]];
         return;
     }
     if (![navigationClass conformsToProtocol:@protocol(DRYNavigationClass)]) {
-        errorHandlerNotNil([NSError navigationClassImplementationError]);
+        [self _callErrorHandlerBlock:errorHandler error:[NSError navigationClassImplementationError]];
         return;
     }
-
-    [self _checkAccessAndNavigateWhenAllowedWithDescriptor:descriptor hostViewController:hostViewController navigationClass:navigationClass errorHandler:errorHandlerNotNil successHandler:successHandlerNotNil];
+    
+    [self _checkAccessAndNavigateWhenAllowedWithDescriptor:descriptor hostViewController:hostViewController navigationClass:navigationClass errorHandler:errorHandler successHandler:successHandler];
 }
 
 - (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
-    DRYNavigationSuccessHandler successHandlerNotNil;
-    DRYNavigationErrorHandler errorHandlerNotNil;
-    [self _createNonNilHandlers:errorHandler successHandler:successHandler successHandlerNotNil:&successHandlerNotNil errorHandlerNotNil:&errorHandlerNotNil];
-
     NSError *error;
     DRYNavigationDescriptor *descriptor = [self createNavigationDescriptorWithNavigationIdentifier:identifier parameters:parameters error:&error];
     if (error) {
-        errorHandlerNotNil(error);
+        [self _callErrorHandlerBlock:errorHandler error:error];
     } else {
-        [self navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandlerNotNil successHandler:successHandlerNotNil];
+        [self navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
     }
 }
 
 #pragma mark - Private Helpers
+- (void)_callErrorHandlerBlock:(DRYNavigationErrorHandler)errorHandler error:(NSError *)error {
+    if (errorHandler) {
+        errorHandler(error);
+    }
+}
 
-- (void)_createNonNilHandlers:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler successHandlerNotNil:(DRYNavigationSuccessHandler *)successHandlerNotNil errorHandlerNotNil:(DRYNavigationErrorHandler *)errorHandlerNotNil {
-    (*successHandlerNotNil) = ^void() {
-        if (successHandler) {
-            successHandler();
-        }
-    };
-    (*errorHandlerNotNil) = ^void(NSError *error) {
-        if (errorHandler) {
-            errorHandler(error);
-        }
-    };
+- (void)_callSuccessHandlerBlock:(DRYNavigationSuccessHandler)successHandler {
+    if (successHandler) {
+        successHandler();
+    }
 }
 
 - (void)_checkAccessAndNavigateWhenAllowedWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController navigationClass:(id <DRYNavigationClass>)navigationClass errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
     [navigationClass hasAccessWithParameters:descriptor.parameters errorHandler:^(NSError *error) {
-        errorHandler(error?:[NSError noAccessToNavigationPathError]);
+        [self _callErrorHandlerBlock:errorHandler error:error?:[NSError noAccessToNavigationPathError]];
     } successHandler:^{
         [self _navigateWithDescriptor:descriptor hostViewController:hostViewController navigationClass:navigationClass errorHandler:errorHandler succesHandler:successHandler];
     }];
@@ -99,10 +89,10 @@
     [navigationClass navigateWithParameters:descriptor.parameters
                          hostViewController:hostViewController
                                errorHandler:^(NSError *error) {
-                                   errorHandler(error ? : [NSError canNotNavigateError]);
+                                   [self _callErrorHandlerBlock:errorHandler error:[NSError canNotNavigateError]];
                                }
                              successHandler:^{
-                                 succesHandler();
+                                 [self _callSuccessHandlerBlock:succesHandler];
                              }];
 }
 

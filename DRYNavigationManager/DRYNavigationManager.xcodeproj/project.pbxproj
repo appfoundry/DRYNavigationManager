@@ -72,14 +72,14 @@
 			isa = PBXGroup;
 			children = (
 				C1A562DB1585279DD25BF22D /* Info.plist */,
-				C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */,
 				C1A56EBB6A19FC5C99544B1E /* DRYNavigationManager.h */,
+				C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */,
 				C1A56AB2B4ACB683EF432F09 /* DRYNavigationTranslationDataSource.h */,
-				C1A56047D29DCBC164E32115 /* DRYNavigationDescriptor.m */,
 				C1A5634EF3EEA2840116431B /* DRYNavigationDescriptor.h */,
+				C1A56047D29DCBC164E32115 /* DRYNavigationDescriptor.m */,
 				C1A563313312C6A317FABAB5 /* DRYNavigationClass.h */,
-				C1A56D889CA4BBB618D82FAB /* NSError+DRYNavigationManager.m */,
 				C1A56E0B9B68F7696A1D3811 /* NSError+DRYNavigationManager.h */,
+				C1A56D889CA4BBB618D82FAB /* NSError+DRYNavigationManager.m */,
 			);
 			path = DRYNavigationManager;
 			sourceTree = "<group>";

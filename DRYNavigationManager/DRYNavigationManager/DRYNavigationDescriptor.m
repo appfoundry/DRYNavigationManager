@@ -5,25 +5,34 @@
 
 #import "DRYNavigationDescriptor.h"
 
-@interface DRYNavigationDescriptor ()
+@interface DRYNavigationDescriptor () {
+    NSMutableDictionary *_parameters;
+}
 
-@property(nonatomic, strong, readwrite) NSString *className;
-
-@property(nonatomic, strong, readwrite) NSDictionary *parameters;
+@property(nonatomic, strong) NSString *className;
 
 @end
 
 @implementation DRYNavigationDescriptor
 
 #pragma mark - Initialisation
+@synthesize parameters = _parameters;
+
+- (instancetype)init {
+    return nil;
+}
 
 - (instancetype)initWithClassName:(NSString *)className parameters:(NSDictionary *)parameters {
-    self = [super init];
-    if (self) {
-        _className = className;
-        _parameters = parameters;
+    if (className) {
+        self = [super init];
+        if (self) {
+            _className = className;
+            _parameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
+        }
+    } else {
+        self = nil;
     }
-
+    
     return self;
 }
 
@@ -34,7 +43,7 @@
 #pragma mark - Utils For adding en removing parameters
 
 - (void)addParameter:(id)value forKey:(NSString *)key {
-    [self addParameters:@{key : value}];
+    _parameters[key] = value;
 }
 
 - (void)removeParameterForKey:(NSString *)key {
@@ -42,15 +51,15 @@
 }
 
 - (void)addParameters:(NSDictionary *)parametersToAdd {
-    NSMutableDictionary *concatenatedDictionary = [NSMutableDictionary dictionaryWithDictionary:self.parameters];
-    [concatenatedDictionary addEntriesFromDictionary:parametersToAdd];
-    self.parameters = concatenatedDictionary;
+    [_parameters addEntriesFromDictionary:parametersToAdd];
 }
 
 - (void)removeParameters:(NSArray *)parametersKeysToRemove {
-    NSMutableDictionary *trimmedDictionary = [NSMutableDictionary dictionaryWithDictionary:self.parameters];
-    [trimmedDictionary removeObjectsForKeys:parametersKeysToRemove];
-    self.parameters = trimmedDictionary;
+    [_parameters removeObjectsForKeys:parametersKeysToRemove];
+}
+
+- (NSDictionary *)parameters {
+    return [_parameters copy];
 }
 
 @end
