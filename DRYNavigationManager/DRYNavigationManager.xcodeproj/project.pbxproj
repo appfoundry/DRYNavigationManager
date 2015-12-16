@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C1A56015A5EF8B3E7DB45AF3 /* NSError+DRYNavigationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A56E0B9B68F7696A1D3811 /* NSError+DRYNavigationManager.h */; };
-		C1A56066CD822505F6E556B0 /* DRYNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */; };
-		C1A560951501A85CCB44C535 /* DRYNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */; };
+		C1A56066CD822505F6E556B0 /* DRYBaseNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A565B6B9DDBE9AD1081B06 /* DRYBaseNavigationManager.m */; };
+		C1A560951501A85CCB44C535 /* DRYBaseNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A565B6B9DDBE9AD1081B06 /* DRYBaseNavigationManager.m */; };
 		C1A5609E4AD4FF7B16922A0F /* NSError+DRYNavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A56D889CA4BBB618D82FAB /* NSError+DRYNavigationManager.m */; };
-		C1A5635D60307D62BC491324 /* DRYNavigationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A56EBB6A19FC5C99544B1E /* DRYNavigationManager.h */; };
+		C1A5635D60307D62BC491324 /* DRYBaseNavigationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A56EBB6A19FC5C99544B1E /* DRYBaseNavigationManager.h */; };
 		C1A564F0226C6A27306AB1DF /* DRYNavigationClass.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A563313312C6A317FABAB5 /* DRYNavigationClass.h */; };
 		C1A5661E68D52604C5BCF17B /* DRYNavigationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A5695FD282CD25A00ABC38 /* DRYNavigationManager.framework */; };
 		C1A569591784A0150B9355A5 /* DRYNavigationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = C1A5634EF3EEA2840116431B /* DRYNavigationDescriptor.h */; };
@@ -39,14 +39,14 @@
 		C1A563313312C6A317FABAB5 /* DRYNavigationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationClass.h; sourceTree = "<group>"; };
 		C1A5634EF3EEA2840116431B /* DRYNavigationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationDescriptor.h; sourceTree = "<group>"; };
 		C1A5640E82A117431E6C9470 /* DRYNavigationManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationManagerTests.m; sourceTree = "<group>"; };
-		C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationManager.m; sourceTree = "<group>"; };
+		C1A565B6B9DDBE9AD1081B06 /* DRYBaseNavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYBaseNavigationManager.m; sourceTree = "<group>"; };
 		C1A5665B987E1FA473FECFDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		C1A5695FD282CD25A00ABC38 /* DRYNavigationManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DRYNavigationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A56AB2B4ACB683EF432F09 /* DRYNavigationTranslationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationTranslationDataSource.h; sourceTree = "<group>"; };
 		C1A56D889CA4BBB618D82FAB /* NSError+DRYNavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+DRYNavigationManager.m"; sourceTree = "<group>"; };
 		C1A56DCAD5CB9069E317C374 /* DRYNavigationDescriptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationDescriptorTests.m; sourceTree = "<group>"; };
 		C1A56E0B9B68F7696A1D3811 /* NSError+DRYNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+DRYNavigationManager.h"; sourceTree = "<group>"; };
-		C1A56EBB6A19FC5C99544B1E /* DRYNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationManager.h; sourceTree = "<group>"; };
+		C1A56EBB6A19FC5C99544B1E /* DRYBaseNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYBaseNavigationManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				C1A562DB1585279DD25BF22D /* Info.plist */,
-				C1A56EBB6A19FC5C99544B1E /* DRYNavigationManager.h */,
-				C1A565B6B9DDBE9AD1081B06 /* DRYNavigationManager.m */,
+				C1A56EBB6A19FC5C99544B1E /* DRYBaseNavigationManager.h */,
+				C1A565B6B9DDBE9AD1081B06 /* DRYBaseNavigationManager.m */,
 				C1A56AB2B4ACB683EF432F09 /* DRYNavigationTranslationDataSource.h */,
 				C1A5634EF3EEA2840116431B /* DRYNavigationDescriptor.h */,
 				C1A56047D29DCBC164E32115 /* DRYNavigationDescriptor.m */,
@@ -119,7 +119,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1A5635D60307D62BC491324 /* DRYNavigationManager.h in Headers */,
+				C1A5635D60307D62BC491324 /* DRYBaseNavigationManager.h in Headers */,
 				C1A56FB911C4B6ED871A5729 /* DRYNavigationTranslationDataSource.h in Headers */,
 				C1A569591784A0150B9355A5 /* DRYNavigationDescriptor.h in Headers */,
 				C1A564F0226C6A27306AB1DF /* DRYNavigationClass.h in Headers */,
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1A560951501A85CCB44C535 /* DRYNavigationManager.m in Sources */,
+				C1A560951501A85CCB44C535 /* DRYBaseNavigationManager.m in Sources */,
 				C1A56AD1EF7F5C1F54160E78 /* DRYNavigationDescriptor.m in Sources */,
 				C1A5609E4AD4FF7B16922A0F /* NSError+DRYNavigationManager.m in Sources */,
 			);
@@ -227,7 +227,7 @@
 				C1A56D81EEA3AAACD7F08CA8 /* DRYNavigationManagerTests.m in Sources */,
 				C1A56F4D88788C920DADD872 /* DRYNavigationDescriptorTests.m in Sources */,
 				C1A56EDB1EA90983AA246932 /* DRYNavigationDescriptor.m in Sources */,
-				C1A56066CD822505F6E556B0 /* DRYNavigationManager.m in Sources */,
+				C1A56066CD822505F6E556B0 /* DRYBaseNavigationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

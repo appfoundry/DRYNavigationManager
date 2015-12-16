@@ -7,12 +7,12 @@
 //
 
 #import "ModalViewController.h"
-#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "DRYBaseNavigationManager.h"
 #import "UIViewController+Reliant.h"
 
 @interface ModalViewController ()
 
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+//@property (nonatomic, weak) id<DRYBaseNavigationManager> navigationManager;
 
 @end
 
@@ -20,12 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self injectSelf];
+//    [self injectSelf];
     self.label.text = @"Tap to close!";
 }
 
 - (void)didTapView:(UIView *)view {
-    [_navigationManager unwindViewController:self];
+//    [_navigationManager unwindViewController:self];
 }
 
 @end

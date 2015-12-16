@@ -3,7 +3,7 @@
 // Copyright (c) 2014 AppFoundry. All rights reserved.
 //
 
-#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "DRYBaseNavigationManager.h"
 
 #import "HelloViewController.h"
 #import "UIViewController+Reliant.h"
@@ -12,7 +12,7 @@
 
 }
 
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+//@property (nonatomic, weak) id<DRYBaseNavigationManager> navigationManager;
 
 @end
 
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self injectSelf];
+//    [self injectSelf];
     self.label.text = [NSString stringWithFormat:@"Howdy %@!", self.text];
     self.title = @"Hello";
 
@@ -29,7 +29,7 @@
 }
 
 - (void)goFurther:(id)goFurther {
-    [_navigationManager navigateFromViewController:self withIdentifier:@"toTab" withUserInfo:nil];
+//    [_navigationManager navigateFromViewController:self withIdentifier:@"toTab" withUserInfo:nil];
 }
 
 - (void)setText:(NSString *)text {

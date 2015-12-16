@@ -8,13 +8,13 @@
 #import "DRYNavigationDescriptor.h"
 #import "NSError+DRYNavigationManager.h"
 
-@interface DRYNavigationManager ()
-
-@property(nonatomic, weak) id <DRYNavigationTranslationDataSource> navigationTranslationDataSource;
+@interface DRYBaseNavigationManager () {
+	id <DRYNavigationTranslationDataSource> _navigationTranslationDataSource;
+}
 
 @end
 
-@implementation DRYNavigationManager
+@implementation DRYBaseNavigationManager
 
 - (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource {
     self = [super init];
@@ -27,12 +27,10 @@
 
 - (DRYNavigationDescriptor *)createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error {
     DRYNavigationDescriptor *descriptor;
-    NSString *className;
-    id <DRYNavigationTranslationDataSource> translationDataSource = self.navigationTranslationDataSource;
-    if(!self.navigationTranslationDataSource) {
+    if(!_navigationTranslationDataSource) {
         *error = [NSError dataSourceUnavailableError];
-    } else if ([translationDataSource respondsToSelector:@selector(classNameForNavigationIdentifier:)]) {
-        className = [translationDataSource classNameForNavigationIdentifier:navigationIdentifier];
+    } else if ([_navigationTranslationDataSource respondsToSelector:@selector(classNameForNavigationIdentifier:)]) {
+		NSString *className = [_navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier];
         descriptor = [DRYNavigationDescriptor descriptorWithClassName:className parameters:parameters];
     } else {
         *error = [NSError dataSourceImplementationError];

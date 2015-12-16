@@ -5,7 +5,7 @@
 
 #import "NSError+DRYNavigationManager.h"
 
-NSString *const kDRYNavigationManagerErrorDomain = @"be.appfoundry.errorDomain.DRYNavigationManager";
+NSString *const kDRYNavigationManagerErrorDomain = @"be.appfoundry.errorDomain.DRYBaseNavigationManager";
 
 @implementation NSError (DRYNavigationManager)
 

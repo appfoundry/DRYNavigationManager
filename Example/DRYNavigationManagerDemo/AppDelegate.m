@@ -7,9 +7,10 @@
 //
 
 #import <Reliant/Reliant.h>
-#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "DRYBaseNavigationManager.h"
 #import "AppDelegate.h"
 #import "AppConfiguration.h"
+#import "MainViewController.h"
 
 @interface AppDelegate () {
     OCSObjectContext *_context;
@@ -23,10 +24,11 @@
     _context = [[OCSObjectContext alloc] initWithConfigurator:configurator];
     [_context start];
 
-    id <DRYNavigationManager> navigationManager = [_context objectForKey:@"navigationManager"];
+	MainViewController *mainViewController = [[MainViewController alloc] init];
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [navigationManager rootViewControllerForFlow:@"main"];
+    self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
