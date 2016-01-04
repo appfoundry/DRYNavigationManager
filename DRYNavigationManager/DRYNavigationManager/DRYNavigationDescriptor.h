@@ -5,15 +5,17 @@
 
 @import Foundation;
 
+@protocol DRYNavigationClass;
+
 @interface DRYNavigationDescriptor : NSObject
 
-@property(nonatomic, strong, readonly) NSString *className;
+@property(nonatomic, strong, readonly) Class navigationClass;
 
 @property(nonatomic, copy, readonly) NSDictionary *parameters;
 
-- (instancetype)initWithClassName:(NSString *)className parameters:(NSDictionary *)parameters;
+- (instancetype)initWithNavigationClass:(Class)className parameters:(NSDictionary *)parameters;
 
-+ (instancetype)descriptorWithClassName:(NSString *)className parameters:(NSDictionary *)parameters;
++ (instancetype)descriptorWithNavigationClass:(Class)className parameters:(NSDictionary *)parameters;
 
 - (void)addParameter:(id)value forKey:(NSString *)key;
 

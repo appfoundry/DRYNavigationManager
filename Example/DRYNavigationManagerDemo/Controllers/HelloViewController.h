@@ -7,7 +7,6 @@
 #import "BaseViewController.h"
 #import "HelloSayer.h"
 
-
 @interface HelloViewController : BaseViewController <UISplitViewControllerDelegate, HelloSayer>
 
 @property (nonatomic, strong) NSString *text;

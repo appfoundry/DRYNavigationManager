@@ -8,10 +8,6 @@
 
 @implementation HelloViewControllerNavigationClass
 
-- (void)hasAccessWithParameters:(NSDictionary *)parameters errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
-	successHandler();
-}
-
 - (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
 	HelloViewController *helloViewController = [[HelloViewController alloc] init];
 	helloViewController.text = parameters[@"selectedName"];

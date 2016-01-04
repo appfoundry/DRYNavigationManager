@@ -11,9 +11,11 @@
 @protocol DRYNavigationTranslationDataSource;
 @class DRYNavigationDescriptor;
 
+@protocol DRYNavigationClassFactory;
+
 @interface DRYBaseNavigationManager : NSObject
 
-- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource;
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigationClassFactory:(id <DRYNavigationClassFactory>)navigationClassFactory;
 
 - (DRYNavigationDescriptor *)createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error;
 

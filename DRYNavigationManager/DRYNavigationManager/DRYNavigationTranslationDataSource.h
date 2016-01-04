@@ -5,8 +5,10 @@
 
 @import Foundation;
 
+@protocol DRYNavigationClass;
+
 @protocol DRYNavigationTranslationDataSource <NSObject>
 
-- (NSString *)classNameForNavigationIdentifier:(NSString *)navigationIdentifier;
+- (Class)classNameForNavigationIdentifier:(NSString *)navigationIdentifier;
 
 @end

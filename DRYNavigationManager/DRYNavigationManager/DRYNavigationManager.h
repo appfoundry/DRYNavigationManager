@@ -11,3 +11,4 @@
 #import "DRYNavigationDescriptor.h"
 #import "DRYNavigationTranslationDataSource.h"
 #import "NSError+DRYNavigationManager.h"
+#import "DRYNavigationClassFactory.h"

@@ -8,12 +8,16 @@
 #import "AppNavigationHelper.h"
 #import "AppIpadNavigationHelper.h"
 #import "DefaultNavigationTranslationDataSource.h"
+#import "DemoNavigationClassFactory.h"
+#import "TabBarControllerNavigationClass.h"
 
 @implementation AppConfiguration
 
 - (DRYBaseNavigationManager *)createSingletonNavigationManager {
 	id<DRYNavigationTranslationDataSource> translationDataSource = [[DefaultNavigationTranslationDataSource alloc] init];
-	return [[DRYBaseNavigationManager alloc] initWithNavigationTranslationDataSource:translationDataSource];
+	DemoNavigationClassFactory *navigationClassFactory = [[DemoNavigationClassFactory alloc] init];
+	[navigationClassFactory registerNavigationClass:[self _tabBarNavigationClass]];
+	return [[DRYBaseNavigationManager alloc] initWithNavigationTranslationDataSource:translationDataSource navigationClassFactory:navigationClassFactory];
 
 //    id<DRYNavigationHelper> helper;
 //    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -22,6 +26,10 @@
 //        helper = [[AppNavigationHelper alloc] init];
 //    }
 //    return [[DRYBaseNavigationManager alloc] initWithNavigationHelper:helper];
+}
+
+- (id<DRYNavigationClass>)_tabBarNavigationClass {
+	return [[TabBarControllerNavigationClass alloc] initWithTabCount:5];
 }
 
 
