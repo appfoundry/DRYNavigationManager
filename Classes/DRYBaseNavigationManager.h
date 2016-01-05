@@ -6,16 +6,18 @@
 @import Foundation;
 @import UIKit;
 
-#import "DRYNavigationClass.h"
+#import "DRYNavigator.h"
 
 @protocol DRYNavigationTranslationDataSource;
 @class DRYNavigationDescriptor;
 
-@protocol DRYNavigationClassFactory;
+@protocol DRYNavigatorFactory;
 
 @interface DRYBaseNavigationManager : NSObject
 
-- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigationClassFactory:(id <DRYNavigationClassFactory>)navigationClassFactory;
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource;
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id <DRYNavigatorFactory>)navigatorFactory;
 
 - (DRYNavigationDescriptor *)createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error;
 

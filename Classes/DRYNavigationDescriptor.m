@@ -3,14 +3,13 @@
 // Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#import <DRYNavigationManager/DRYNavigationClass.h>
 #import "DRYNavigationDescriptor.h"
 
 @interface DRYNavigationDescriptor () {
     NSMutableDictionary *_parameters;
 }
 
-@property(nonatomic, strong) Class navigationClass;
+@property(nonatomic, strong) Class navigatorClass;
 
 @end
 
@@ -23,22 +22,17 @@
     return nil;
 }
 
-- (instancetype)initWithNavigationClass:(Class)navigationClass parameters:(NSDictionary *)parameters {
-    if (navigationClass) {
-        self = [super init];
-        if (self) {
-			_navigationClass = navigationClass;
-            _parameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
-        }
-    } else {
-        self = nil;
+- (instancetype)initWithNavigatorClass:(Class)navigatorClass parameters:(NSDictionary *)parameters {
+    self = [super init];
+    if (self) {
+        _navigatorClass = navigatorClass;
+        _parameters = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
     }
-    
     return self;
 }
 
-+ (instancetype)descriptorWithNavigationClass:(Class)navigationClass parameters:(NSDictionary *)parameters {
-    return [[self alloc] initWithNavigationClass:navigationClass parameters:parameters];
++ (instancetype)descriptorWithNavigatorClass:(Class)navigatorClass parameters:(NSDictionary *)parameters {
+    return [[self alloc] initWithNavigatorClass:navigatorClass parameters:parameters];
 }
 
 #pragma mark - Utils For adding en removing parameters

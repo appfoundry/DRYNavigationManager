@@ -1,9 +1,9 @@
 PODS:
   - DRYNavigationManager (2.0.0)
-  - OCHamcrest (4.3.0)
-  - OCMockito (2.0.1):
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
-  - Reliant (2.2.2)
+  - Reliant (2.2.1)
 
 DEPENDENCIES:
   - DRYNavigationManager (from `../`)
@@ -12,12 +12,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   DRYNavigationManager:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  DRYNavigationManager: 248b7f43282bcae0c40c7237dc6fac0fc1944b73
-  OCHamcrest: cd63d27f48a266d4412c0b295b01b8f0940efa81
-  OCMockito: f92ad4c6fac2841a88558879cfe517c40aebf91e
-  Reliant: 56f58e32ce57609f3ae820a031b8c4103bd80888
+  DRYNavigationManager: db5ceb09ba437681b448d9a5160019b99512e809
+  OCHamcrest: af1c7c5ea345de69ea6c9c2958f65f3044e5c420
+  OCMockito: 991936bb775cc4c27f063d38f5e17b9161fbd21c
+  Reliant: 231ba526a2a3f8654849dadeead27479e9225d9f
 
 COCOAPODS: 0.39.0

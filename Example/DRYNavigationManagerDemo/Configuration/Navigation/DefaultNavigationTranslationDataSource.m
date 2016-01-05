@@ -5,10 +5,10 @@
 
 #import "DefaultNavigationTranslationDataSource.h"
 #import "NavigationConstants.h"
-#import "HelloViewControllerNavigationClass.h"
-#import "TabBarControllerNavigationClass.h"
-#import "ModalViewControllerNavigationClass.h"
-#import "CloseModalViewControllerNavigationClass.h"
+#import "HelloViewControllerNavigator.h"
+#import "TabBarControllerNavigator.h"
+#import "ModalViewControllerNavigator.h"
+#import "CloseModalViewControllerNavigator.h"
 
 @implementation DefaultNavigationTranslationDataSource {
 	NSDictionary<NSString *, Class> *_navigationTranslationDataSource;
@@ -18,10 +18,10 @@
 	self = [super init];
 	if(self) {
 		_navigationTranslationDataSource = @{
-				TO_HELLO_VIEW_IDENTIFIER : HelloViewControllerNavigationClass.class,
-				TO_TAB_BAR_VIEW_CONTROLLER : TabBarControllerNavigationClass.class,
-				TO_MODAL_VIEW_CONTROLLER : ModalViewControllerNavigationClass.class,
-				CLOSE_MODAL_VIEW_CONTROLLER : CloseModalViewControllerNavigationClass.class
+				TO_HELLO_VIEW_IDENTIFIER : HelloViewControllerNavigator.class,
+				TO_TAB_BAR_VIEW_CONTROLLER : TabBarControllerNavigator.class,
+				TO_MODAL_VIEW_CONTROLLER : ModalViewControllerNavigator.class,
+				CLOSE_MODAL_VIEW_CONTROLLER : CloseModalViewControllerNavigator.class
 		};
 	}
 	return self;

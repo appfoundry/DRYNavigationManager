@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self injectSelf];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     self.label.text = [NSString stringWithFormat:@"Howdy %@!", self.text];
     self.title = @"Hello";
 

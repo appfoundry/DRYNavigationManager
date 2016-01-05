@@ -4,9 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DRYNavigationClass.h"
+#import "DRYNavigator.h"
 
-@interface TabBarControllerNavigationClass : NSObject<DRYNavigationClass>
+@interface TabBarControllerNavigator : NSObject<DRYNavigator>
 
 - (instancetype)initWithTabCount:(NSUInteger)tabCount;
 

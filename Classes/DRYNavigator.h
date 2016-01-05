@@ -9,7 +9,7 @@
 typedef void (^DRYNavigationErrorHandler)(NSError *);
 typedef void (^DRYNavigationSuccessHandler)();
 
-@protocol DRYNavigationClass <NSObject>
+@protocol DRYNavigator <NSObject>
 
 - (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
 

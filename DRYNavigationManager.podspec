@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = "https://github.com/appfoundry/DRYNavigationManager"
   s.license          = 'MIT'
-  s.author           = { "Michael Seghers" => "mike.seghers@appfoundry.be", "Bart Vandeweerdt" => "bart.vandeweerdt@appfoundry.be" }
+  s.author           = { "Michael Seghers" => "mike.seghers@appfoundry.be", "Bart Vandeweerdt" => "bart.vandeweerdt@appfoundry.be", "Joris Dubois" => "joris.dubois@appfoundry.be", "Jens Goeman" => "jens.goeman@appfoundry.be" }
   s.source           = { :git => "https://github.com/appfoundry/DRYNavigationManager.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/appfoundrybe'
 
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.requires_arc = true
 
-  s.source_files = 'DRYNavigationManager/DRYNavigationManager/**/*.{h,m}'
+  s.source_files = 'Classes/**/*.{h,m}'
 end

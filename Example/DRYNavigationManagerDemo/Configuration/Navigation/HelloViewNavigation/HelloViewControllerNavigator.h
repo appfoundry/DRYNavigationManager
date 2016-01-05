@@ -6,5 +6,5 @@
 #import <Foundation/Foundation.h>
 #import <DRYNavigationManager/DRYNavigationManager.h>
 
-@interface HelloViewControllerNavigationClass : NSObject<DRYNavigationClass>
+@interface HelloViewControllerNavigator : NSObject<DRYNavigator>
 @end

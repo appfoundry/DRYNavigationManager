@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self injectSelf];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     self.label.text = @"Tap to close!";
 }
 

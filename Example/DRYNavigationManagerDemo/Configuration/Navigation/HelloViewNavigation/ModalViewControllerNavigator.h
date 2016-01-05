@@ -4,8 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DRYNavigationClass.h"
+#import "DRYNavigator.h"
 
-@interface ModalViewControllerNavigationClass : NSObject <DRYNavigationClass>
+@interface ModalViewControllerNavigator : NSObject <DRYNavigator>
 
 @end

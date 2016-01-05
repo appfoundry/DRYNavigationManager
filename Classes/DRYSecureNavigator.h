@@ -3,9 +3,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DRYNavigationClass.h"
+#import "DRYNavigator.h"
 
-@protocol DRYSecureNavigationClass <DRYNavigationClass>
+@protocol DRYSecureNavigator <DRYNavigator>
 
 - (void)hasAccessWithParameters:(NSDictionary *)parameters errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
 

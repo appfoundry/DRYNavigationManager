@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080CDE531C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CDE521C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m */; };
+		08993A661C3BC1CE00803AEE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08993A651C3BC1CE00803AEE /* Launch Screen.storyboard */; };
+		08993A681C3BC57B00803AEE /* DRYNavigationDescriptorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08993A671C3BC57B00803AEE /* DRYNavigationDescriptorTests.m */; };
 		27462D531934980C00D74327 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27462D521934980C00D74327 /* Foundation.framework */; };
 		27462D551934980C00D74327 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27462D541934980C00D74327 /* CoreGraphics.framework */; };
 		27462D571934980C00D74327 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27462D561934980C00D74327 /* UIKit.framework */; };
@@ -30,11 +33,12 @@
 		3323FBDF850FF2B5636F21CF /* InTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323F45CAF2E3C16A85765AE /* InTabViewController.m */; };
 		A90F1019491D152041282487 /* DefaultNavigationTranslationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */; };
 		A90F116F967DF9F00B3A17E2 /* AppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F1FC742DA735DDAC71FE5 /* AppConfiguration.m */; };
-		A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F196903A19DFD957484D3 /* TabBarControllerNavigationClass.m */; };
-		A90F11E1F406B1549FE0D4F6 /* CloseModalViewControllerNavigationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigationClass.m */; };
-		A90F170AB57039C33C657719 /* ModalViewControllerNavigationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigationClass.m */; };
-		A90F18A50D973B66954003F4 /* DemoNavigationClassFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F16E3B07F9BFD239144BC /* DemoNavigationClassFactory.m */; };
-		A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F192F976811DE7080690C /* HelloViewControllerNavigationClass.m */; };
+		A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F196903A19DFD957484D3 /* TabBarControllerNavigator.m */; };
+		A90F11E1F406B1549FE0D4F6 /* CloseModalViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigator.m */; };
+		A90F170AB57039C33C657719 /* ModalViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigator.m */; };
+		A90F18A50D973B66954003F4 /* DemoNavigatorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F16E3B07F9BFD239144BC /* DemoNavigatorFactory.m */; };
+		A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F192F976811DE7080690C /* HelloViewControllerNavigator.m */; };
+		C1A56FD2C44925904C361BDF /* DRYNavigationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */; };
 		F628CF356EAB401E85DDD692 /* libPods-DRYNavigationManagerDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4827B67E99144A7E974D6446 /* libPods-DRYNavigationManagerDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080CDE521C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYDefaultNavigatorFactoryTests.m; sourceTree = "<group>"; };
+		08993A651C3BC1CE00803AEE /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		08993A671C3BC57B00803AEE /* DRYNavigationDescriptorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationDescriptorTests.m; sourceTree = "<group>"; };
 		27462D4F1934980C00D74327 /* DRYNavigationManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRYNavigationManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27462D521934980C00D74327 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27462D541934980C00D74327 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,21 +93,22 @@
 		5F21EE267E71434AA0633D78 /* libPods-DRYNavigationManagerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DRYNavigationManagerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCF11511203DE89306DC574 /* Pods-DRYNavigationManagerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemoTests/Pods-DRYNavigationManagerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		93B9FA35A8801D6E85300029 /* Pods-DRYNavigationManagerDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemoTests/Pods-DRYNavigationManagerDemoTests.release.xcconfig"; sourceTree = "<group>"; };
-		A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewControllerNavigationClass.m; sourceTree = "<group>"; };
-		A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloseModalViewControllerNavigationClass.m; sourceTree = "<group>"; };
+		A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewControllerNavigator.m; sourceTree = "<group>"; };
+		A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloseModalViewControllerNavigator.m; sourceTree = "<group>"; };
 		A90F1578BDBCBEE3CBFE048A /* AppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfiguration.h; sourceTree = "<group>"; };
-		A90F16E3B07F9BFD239144BC /* DemoNavigationClassFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoNavigationClassFactory.m; sourceTree = "<group>"; };
-		A90F1736E06F133BC636A50E /* HelloViewControllerNavigationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloViewControllerNavigationClass.h; sourceTree = "<group>"; };
-		A90F192F976811DE7080690C /* HelloViewControllerNavigationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloViewControllerNavigationClass.m; sourceTree = "<group>"; };
-		A90F196903A19DFD957484D3 /* TabBarControllerNavigationClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerNavigationClass.m; sourceTree = "<group>"; };
+		A90F16E3B07F9BFD239144BC /* DemoNavigatorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoNavigatorFactory.m; sourceTree = "<group>"; };
+		A90F1736E06F133BC636A50E /* HelloViewControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloViewControllerNavigator.h; sourceTree = "<group>"; };
+		A90F192F976811DE7080690C /* HelloViewControllerNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloViewControllerNavigator.m; sourceTree = "<group>"; };
+		A90F196903A19DFD957484D3 /* TabBarControllerNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerNavigator.m; sourceTree = "<group>"; };
 		A90F1A6CABED020EA0EDEC63 /* NavigationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationConstants.h; sourceTree = "<group>"; };
-		A90F1B49212246C4117F0696 /* DemoNavigationClassFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoNavigationClassFactory.h; sourceTree = "<group>"; };
-		A90F1C960E17D619FF994413 /* ModalViewControllerNavigationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerNavigationClass.h; sourceTree = "<group>"; };
+		A90F1B49212246C4117F0696 /* DemoNavigatorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoNavigatorFactory.h; sourceTree = "<group>"; };
+		A90F1C960E17D619FF994413 /* ModalViewControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerNavigator.h; sourceTree = "<group>"; };
 		A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultNavigationTranslationDataSource.m; sourceTree = "<group>"; };
-		A90F1D7624041A038CC8D03B /* CloseModalViewControllerNavigationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseModalViewControllerNavigationClass.h; sourceTree = "<group>"; };
-		A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerNavigationClass.h; sourceTree = "<group>"; };
+		A90F1D7624041A038CC8D03B /* CloseModalViewControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseModalViewControllerNavigator.h; sourceTree = "<group>"; };
+		A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerNavigator.h; sourceTree = "<group>"; };
 		A90F1F6F17038D93916234A5 /* DefaultNavigationTranslationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultNavigationTranslationDataSource.h; sourceTree = "<group>"; };
 		A90F1FC742DA735DDAC71FE5 /* AppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfiguration.m; sourceTree = "<group>"; };
+		C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationManagerTests.m; sourceTree = "<group>"; };
 		CC97F2FC92910BC0988B971D /* Pods-DRYNavigationManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemo/Pods-DRYNavigationManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F3A1D819BA1BFC8293AE6E35 /* Pods-DRYNavigationManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemo/Pods-DRYNavigationManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +193,7 @@
 				27462D5B1934980C00D74327 /* InfoPlist.strings */,
 				27462D5E1934980C00D74327 /* main.m */,
 				27462D601934980C00D74327 /* DRYNavigationManagerDemo-Prefix.pch */,
+				08993A651C3BC1CE00803AEE /* Launch Screen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,8 +201,11 @@
 		27462D711934980C00D74327 /* DRYNavigationManagerDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				08993A671C3BC57B00803AEE /* DRYNavigationDescriptorTests.m */,
+				080CDE521C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m */,
 				27462D771934980C00D74327 /* DRYNavigationManagerDemoTests.m */,
 				27462D721934980C00D74327 /* Supporting Files */,
+				C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */,
 			);
 			path = DRYNavigationManagerDemoTests;
 			sourceTree = "<group>";
@@ -232,15 +244,15 @@
 		3323F9E2177F3F9798C663F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3323FE842BDCC2B9726DBB42 /* HelloSayer.h */,
 				3323FA7EB178E88252939881 /* MainViewController.h */,
+				3323F37BAE7BB9AE682D2775 /* MainViewController.m */,
 				3323F04A91AC6B1816865968 /* InTabViewController.h */,
+				3323F45CAF2E3C16A85765AE /* InTabViewController.m */,
 				3323FD0BA831CFFA0F067F08 /* HelloViewController.h */,
+				3323F8D77D683D31464814AC /* HelloViewController.m */,
 				3323F7C56E011E1F4C28062D /* BaseViewController.h */,
 				3323FF19E16D27FE4F2799CF /* BaseViewController.m */,
-				3323F37BAE7BB9AE682D2775 /* MainViewController.m */,
-				3323F45CAF2E3C16A85765AE /* InTabViewController.m */,
-				3323F8D77D683D31464814AC /* HelloViewController.m */,
-				3323FE842BDCC2B9726DBB42 /* HelloSayer.h */,
 				2780199C199A5149005A4449 /* ModalViewController.h */,
 				2780199D199A5149005A4449 /* ModalViewController.m */,
 			);
@@ -271,8 +283,8 @@
 				A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */,
 				A90F1EF8C0698E9CEA792943 /* HelloViewNavigation */,
 				A90F1A6CABED020EA0EDEC63 /* NavigationConstants.h */,
-				A90F16E3B07F9BFD239144BC /* DemoNavigationClassFactory.m */,
-				A90F1B49212246C4117F0696 /* DemoNavigationClassFactory.h */,
+				A90F16E3B07F9BFD239144BC /* DemoNavigatorFactory.m */,
+				A90F1B49212246C4117F0696 /* DemoNavigatorFactory.h */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -280,14 +292,14 @@
 		A90F1EF8C0698E9CEA792943 /* HelloViewNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				A90F192F976811DE7080690C /* HelloViewControllerNavigationClass.m */,
-				A90F1736E06F133BC636A50E /* HelloViewControllerNavigationClass.h */,
-				A90F196903A19DFD957484D3 /* TabBarControllerNavigationClass.m */,
-				A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigationClass.h */,
-				A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigationClass.m */,
-				A90F1C960E17D619FF994413 /* ModalViewControllerNavigationClass.h */,
-				A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigationClass.m */,
-				A90F1D7624041A038CC8D03B /* CloseModalViewControllerNavigationClass.h */,
+				A90F192F976811DE7080690C /* HelloViewControllerNavigator.m */,
+				A90F1736E06F133BC636A50E /* HelloViewControllerNavigator.h */,
+				A90F196903A19DFD957484D3 /* TabBarControllerNavigator.m */,
+				A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigator.h */,
+				A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigator.m */,
+				A90F1C960E17D619FF994413 /* ModalViewControllerNavigator.h */,
+				A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigator.m */,
+				A90F1D7624041A038CC8D03B /* CloseModalViewControllerNavigator.h */,
 			);
 			path = HelloViewNavigation;
 			sourceTree = "<group>";
@@ -353,7 +365,7 @@
 		27462D471934980B00D74327 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = AppFoundry;
 				TargetAttributes = {
 					27462D691934980C00D74327 = {
@@ -384,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08993A661C3BC1CE00803AEE /* Launch Screen.storyboard in Resources */,
 				27462D5D1934980C00D74327 /* InfoPlist.strings in Resources */,
 				27462D651934980C00D74327 /* Images.xcassets in Resources */,
 			);
@@ -509,11 +522,11 @@
 				3323F443B225F5595D014605 /* AppIpadNavigationHelper.m in Sources */,
 				A90F116F967DF9F00B3A17E2 /* AppConfiguration.m in Sources */,
 				A90F1019491D152041282487 /* DefaultNavigationTranslationDataSource.m in Sources */,
-				A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigationClass.m in Sources */,
-				A90F18A50D973B66954003F4 /* DemoNavigationClassFactory.m in Sources */,
-				A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigationClass.m in Sources */,
-				A90F170AB57039C33C657719 /* ModalViewControllerNavigationClass.m in Sources */,
-				A90F11E1F406B1549FE0D4F6 /* CloseModalViewControllerNavigationClass.m in Sources */,
+				A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigator.m in Sources */,
+				A90F18A50D973B66954003F4 /* DemoNavigatorFactory.m in Sources */,
+				A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigator.m in Sources */,
+				A90F170AB57039C33C657719 /* ModalViewControllerNavigator.m in Sources */,
+				A90F11E1F406B1549FE0D4F6 /* CloseModalViewControllerNavigator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +534,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08993A681C3BC57B00803AEE /* DRYNavigationDescriptorTests.m in Sources */,
 				27462D781934980C00D74327 /* DRYNavigationManagerDemoTests.m in Sources */,
+				080CDE531C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m in Sources */,
+				C1A56FD2C44925904C361BDF /* DRYNavigationManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +589,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -632,10 +649,11 @@
 			baseConfigurationReference = F3A1D819BA1BFC8293AE6E35 /* Pods-DRYNavigationManagerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRYNavigationManagerDemo/DRYNavigationManagerDemo-Prefix.pch";
 				INFOPLIST_FILE = "DRYNavigationManagerDemo/DRYNavigationManagerDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.appfoundry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -646,10 +664,11 @@
 			baseConfigurationReference = CC97F2FC92910BC0988B971D /* Pods-DRYNavigationManagerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRYNavigationManagerDemo/DRYNavigationManagerDemo-Prefix.pch";
 				INFOPLIST_FILE = "DRYNavigationManagerDemo/DRYNavigationManagerDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "be.appfoundry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -672,6 +691,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "DRYNavigationManagerDemoTests/DRYNavigationManagerDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.appfoundry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -691,6 +711,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRYNavigationManagerDemo/DRYNavigationManagerDemo-Prefix.pch";
 				INFOPLIST_FILE = "DRYNavigationManagerDemoTests/DRYNavigationManagerDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.appfoundry.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

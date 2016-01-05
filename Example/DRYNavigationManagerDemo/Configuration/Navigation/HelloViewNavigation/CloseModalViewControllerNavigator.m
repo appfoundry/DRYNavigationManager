@@ -3,9 +3,9 @@
 // Copyright (c) 2016 AppFoundry. All rights reserved.
 //
 
-#import "CloseModalViewControllerNavigationClass.h"
+#import "CloseModalViewControllerNavigator.h"
 
-@implementation CloseModalViewControllerNavigationClass
+@implementation CloseModalViewControllerNavigator
 
 - (void)hasAccessWithParameters:(NSDictionary *)parameters errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
 	if(arc4random_uniform(100) < 50) {

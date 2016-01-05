@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self injectSelf];
     
     self.menu = @[@"Partner", @"Chap", @"Buddy"];

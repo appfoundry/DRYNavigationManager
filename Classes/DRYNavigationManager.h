@@ -7,8 +7,8 @@
 //
 
 #import "DRYBaseNavigationManager.h"
-#import "DRYNavigationClass.h"
+#import "DRYNavigator.h"
 #import "DRYNavigationDescriptor.h"
 #import "DRYNavigationTranslationDataSource.h"
 #import "NSError+DRYNavigationManager.h"
-#import "DRYNavigationClassFactory.h"
+#import "DRYNavigatorFactory.h"

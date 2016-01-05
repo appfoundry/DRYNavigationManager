@@ -3,15 +3,15 @@
 // Copyright (c) 2016 AppFoundry. All rights reserved.
 //
 
-#import "TabBarControllerNavigationClass.h"
+#import "TabBarControllerNavigator.h"
 #import "InTabViewController.h"
 
-@interface TabBarControllerNavigationClass() {
+@interface TabBarControllerNavigator () {
 	NSUInteger _tabCount;
 }
 @end
 
-@implementation TabBarControllerNavigationClass
+@implementation TabBarControllerNavigator
 
 - (instancetype)initWithTabCount:(NSUInteger)tabCount {
 	self = [super init];

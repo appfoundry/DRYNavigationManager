@@ -5,7 +5,7 @@
 
 @import Foundation;
 
-@protocol DRYNavigationClass;
+@protocol DRYNavigator;
 
 @protocol DRYNavigationTranslationDataSource <NSObject>
 

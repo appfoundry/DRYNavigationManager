@@ -6,8 +6,6 @@
 #import <Foundation/Foundation.h>
 #import <DRYNavigationManager/DRYNavigationManager.h>
 
-@interface DemoNavigationClassFactory : NSObject<DRYNavigationClassFactory>
-
-- (void)registerNavigationClass:(id <DRYNavigationClass>)navigationClass;
+@interface DemoNavigatorFactory : NSObject<DRYNavigatorFactory>
 
 @end

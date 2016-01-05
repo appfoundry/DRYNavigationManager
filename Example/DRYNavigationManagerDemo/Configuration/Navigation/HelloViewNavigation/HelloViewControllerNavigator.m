@@ -3,10 +3,10 @@
 // Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#import "HelloViewControllerNavigationClass.h"
+#import "HelloViewControllerNavigator.h"
 #import "HelloViewController.h"
 
-@implementation HelloViewControllerNavigationClass
+@implementation HelloViewControllerNavigator
 
 - (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
 	HelloViewController *helloViewController = [[HelloViewController alloc] init];
