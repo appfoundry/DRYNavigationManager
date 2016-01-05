@@ -20,7 +20,6 @@
 		27462D6D1934980C00D74327 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27462D521934980C00D74327 /* Foundation.framework */; };
 		27462D6E1934980C00D74327 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27462D561934980C00D74327 /* UIKit.framework */; };
 		27462D761934980C00D74327 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27462D741934980C00D74327 /* InfoPlist.strings */; };
-		27462D781934980C00D74327 /* DRYNavigationManagerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27462D771934980C00D74327 /* DRYNavigationManagerDemoTests.m */; };
 		2780199E199A5149005A4449 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2780199D199A5149005A4449 /* ModalViewController.m */; };
 		2C4BB5D4142C46F09BE9DDC9 /* libPods-DRYNavigationManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F21EE267E71434AA0633D78 /* libPods-DRYNavigationManagerDemo.a */; };
 		3323F14C661478118BB37AF3 /* UIViewController+Reliant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323FA9287957D9C26FB9516 /* UIViewController+Reliant.m */; };
@@ -38,7 +37,7 @@
 		A90F170AB57039C33C657719 /* ModalViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11922A547E1BA9330BD1 /* ModalViewControllerNavigator.m */; };
 		A90F18A50D973B66954003F4 /* DemoNavigatorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F16E3B07F9BFD239144BC /* DemoNavigatorFactory.m */; };
 		A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F192F976811DE7080690C /* HelloViewControllerNavigator.m */; };
-		C1A56FD2C44925904C361BDF /* DRYNavigationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */; };
+		C1A56FD2C44925904C361BDF /* DRYBaseNavigationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A56D14FEB4E97ED7B2B1E3 /* DRYBaseNavigationManagerTests.m */; };
 		F628CF356EAB401E85DDD692 /* libPods-DRYNavigationManagerDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4827B67E99144A7E974D6446 /* libPods-DRYNavigationManagerDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		27462D6B1934980C00D74327 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		27462D731934980C00D74327 /* DRYNavigationManagerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRYNavigationManagerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		27462D751934980C00D74327 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		27462D771934980C00D74327 /* DRYNavigationManagerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationManagerDemoTests.m; sourceTree = "<group>"; };
 		2780199C199A5149005A4449 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		2780199D199A5149005A4449 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
 		3323F04A91AC6B1816865968 /* InTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InTabViewController.h; sourceTree = "<group>"; };
@@ -108,7 +106,8 @@
 		A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerNavigator.h; sourceTree = "<group>"; };
 		A90F1F6F17038D93916234A5 /* DefaultNavigationTranslationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultNavigationTranslationDataSource.h; sourceTree = "<group>"; };
 		A90F1FC742DA735DDAC71FE5 /* AppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfiguration.m; sourceTree = "<group>"; };
-		C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYNavigationManagerTests.m; sourceTree = "<group>"; };
+		C1A56314D3A86E1D530304FA /* DRYNavigationManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationManagerTests.h; sourceTree = "<group>"; };
+		C1A56D14FEB4E97ED7B2B1E3 /* DRYBaseNavigationManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYBaseNavigationManagerTests.m; sourceTree = "<group>"; };
 		CC97F2FC92910BC0988B971D /* Pods-DRYNavigationManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemo/Pods-DRYNavigationManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F3A1D819BA1BFC8293AE6E35 /* Pods-DRYNavigationManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRYNavigationManagerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRYNavigationManagerDemo/Pods-DRYNavigationManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,9 +202,9 @@
 			children = (
 				08993A671C3BC57B00803AEE /* DRYNavigationDescriptorTests.m */,
 				080CDE521C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m */,
-				27462D771934980C00D74327 /* DRYNavigationManagerDemoTests.m */,
 				27462D721934980C00D74327 /* Supporting Files */,
-				C1A56D14FEB4E97ED7B2B1E3 /* DRYNavigationManagerTests.m */,
+				C1A56D14FEB4E97ED7B2B1E3 /* DRYBaseNavigationManagerTests.m */,
+				C1A56314D3A86E1D530304FA /* DRYNavigationManagerTests.h */,
 			);
 			path = DRYNavigationManagerDemoTests;
 			sourceTree = "<group>";
@@ -535,9 +534,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				08993A681C3BC57B00803AEE /* DRYNavigationDescriptorTests.m in Sources */,
-				27462D781934980C00D74327 /* DRYNavigationManagerDemoTests.m in Sources */,
 				080CDE531C3BE6A70014D8F3 /* DRYDefaultNavigatorFactoryTests.m in Sources */,
-				C1A56FD2C44925904C361BDF /* DRYNavigationManagerTests.m in Sources */,
+				C1A56FD2C44925904C361BDF /* DRYBaseNavigationManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

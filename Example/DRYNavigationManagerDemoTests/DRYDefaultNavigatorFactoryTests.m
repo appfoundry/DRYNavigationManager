@@ -6,10 +6,7 @@
 //  Copyright © 2016 AppFoundry. All rights reserved.
 //
 
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
-@import XCTest;
-
+#import "DRYNavigationManagerTests.h"
 #import "DRYNavigatorFactory.h"
 #import "DRYDefaultNavigatorFactory.h"
 
@@ -20,10 +17,9 @@
 @end
 
 
-@interface DRYDefaultNavigatorFactoryTests : XCTestCase
-
-@property(nonatomic, strong) DRYDefaultNavigatorFactory *factory;
-
+@interface DRYDefaultNavigatorFactoryTests : XCTestCase {
+    DRYDefaultNavigatorFactory *_factory;
+}
 @end
 
 @implementation DRYDefaultNavigatorFactoryTests

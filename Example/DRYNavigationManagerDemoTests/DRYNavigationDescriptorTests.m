@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#define HC_SHORTHAND
-#import <OCHamcrest/OCHamcrest.h>
-@import XCTest;
-
+#import "DRYNavigationManagerTests.h"
 #import <DRYNavigationManager/DRYNavigationDescriptor.h>
 #import "DRYNavigator.h"
 

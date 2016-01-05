@@ -17,20 +17,6 @@ NSString *const kDRYNavigationManagerErrorDomain = @"be.appfoundry.errorDomain.D
 
 #pragma mark - Utils for creating errors
 
-+ (NSError *)dryDataSourceUnavailableError {
-    return [NSError _dryErrorWithLocalizedDescription:@"DRYNavigationTranslationDataSource can't be messaged"
-                                      localizedReason:@"DRYNavigationTranslationDataSource is nil"
-                                            errorType:DRYNavigationManagerErrorDataSourcesUnavailable
-                                             userInfo:nil];
-}
-
-+ (NSError *)dryDataSourceImplementationError {
-    return [NSError _dryErrorWithLocalizedDescription:@"DRYNavigationTranslationDataSource can't be messaged"
-                                      localizedReason:@"DRYNavigationTranslationDataSource method being called isn't implemented"
-                                            errorType:DRYNavigationManagerErrorDataSourcesImplementation
-                                             userInfo:nil];
-}
-
 + (NSError *)dryNavigationDescriptorMissingNavigatorError {
     return [self _dryNavigatorCreationErrorWithDescription:@"Your navigation descriptor is missing a navigator class"];
 }

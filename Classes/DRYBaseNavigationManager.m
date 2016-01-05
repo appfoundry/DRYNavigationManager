@@ -13,8 +13,9 @@
 
 @interface DRYBaseNavigationManager () {
 	id <DRYNavigationTranslationDataSource> _navigationTranslationDataSource;
-	id <DRYNavigatorFactory> _navigatorFactory;
 }
+
+@property(nonatomic, strong, readonly) id <DRYNavigatorFactory> navigatorFactory;
 
 @end
 
@@ -25,7 +26,11 @@
 }
 
 - (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id<DRYNavigatorFactory>)navigatorFactory {
-	self = [super init];
+	if (!navigatorFactory || !navigationTranslationDataSource) {
+        return nil;
+    }
+
+    self = [super init];
 	if (self) {
 		_navigationTranslationDataSource = navigationTranslationDataSource;
 		_navigatorFactory = navigatorFactory;
@@ -33,35 +38,23 @@
 	return self;
 }
 
-- (DRYNavigationDescriptor *)createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error {
-    DRYNavigationDescriptor *descriptor;
-    if(!_navigationTranslationDataSource) {
-        *error = [NSError dryDataSourceUnavailableError];
-    } else if ([_navigationTranslationDataSource respondsToSelector:@selector(classNameForNavigationIdentifier:)]) {
-		Class navigatorClass = [_navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier];
-        descriptor = [DRYNavigationDescriptor descriptorWithNavigatorClass:navigatorClass parameters:parameters];
-    } else {
-        *error = [NSError dryDataSourceImplementationError];
-    }
-    return descriptor;
+- (DRYNavigationDescriptor *)_createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error {
+    Class navigatorClass = [_navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier ];
+    return [DRYNavigationDescriptor descriptorWithNavigatorClass:navigatorClass parameters:parameters];
 }
 
-- (void)navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
+- (void)_navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
 	if(!descriptor.navigatorClass){
         [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigationDescriptorMissingNavigatorError]];
         return;
     }
     id <DRYNavigator> navigator = [_navigatorFactory navigatorForClass:descriptor.navigatorClass];
 	if (!navigator) {
-		navigator = (id <DRYNavigator>) [[descriptor.navigatorClass alloc] init];
-	}
-
-	if (!navigator) {
         [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigatorCreationError]];
         return;
     }
 
-    if (![navigator conformsToProtocol:@protocol(DRYNavigator)]) {
+    if (![navigator conformsToProtocol:@protocol(DRYNavigator)] || ![navigator respondsToSelector:@selector(navigateWithParameters:hostViewController:errorHandler:successHandler:)]) {
         [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigatorImplementationError]];
         return;
     }
@@ -71,11 +64,11 @@
 
 - (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
     NSError *error;
-    DRYNavigationDescriptor *descriptor = [self createNavigationDescriptorWithNavigationIdentifier:identifier parameters:parameters error:&error];
+    DRYNavigationDescriptor *descriptor = [self _createNavigationDescriptorWithNavigationIdentifier:identifier parameters:parameters error:&error];
     if (error) {
         [self _callErrorHandlerBlock:errorHandler error:error];
     } else {
-        [self navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
+        [self _navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
     }
 }
 
