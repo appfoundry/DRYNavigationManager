@@ -1,56 +1,111 @@
 //
-// Created by Michael Seghers on 23/05/14.
-// Copyright (c) 2014 AppFoundry. All rights reserved.
+// Created by Jens Goeman on 24/11/15.
+// Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#import "DRYBaseNavigationManager.h"
-#import "DRYNavigationHelper.h"
+#import "DRYNavigationManager.h"
+#import "DRYNavigationTranslationDataSource.h"
+#import "DRYNavigationDescriptor.h"
+#import "NSError+DRYNavigationManager.h"
+#import "DRYNavigatorFactory.h"
+#import "DRYDefaultNavigatorFactory.h"
+#import "DRYSecureNavigator.h"
 
 @interface DRYBaseNavigationManager () {
-    NSObject<DRYNavigationHelper> *_navigationHelper;
+	id <DRYNavigationTranslationDataSource> _navigationTranslationDataSource;
 }
+
+@property(nonatomic, strong, readonly) id <DRYNavigatorFactory> navigatorFactory;
+
 @end
 
 @implementation DRYBaseNavigationManager
 
-- (id)initWithNavigationHelper:(NSObject<DRYNavigationHelper> *)navigationHelper {
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource {
+    return [self initWithNavigationTranslationDataSource:navigationTranslationDataSource navigatorFactory:[[DRYDefaultNavigatorFactory alloc] init]];
+}
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id<DRYNavigatorFactory>)navigatorFactory {
+	if (!navigatorFactory || !navigationTranslationDataSource) {
+        return nil;
+    }
+
     self = [super init];
-    if (self) {
-        _navigationHelper = navigationHelper;
+	if (self) {
+		_navigationTranslationDataSource = navigationTranslationDataSource;
+		_navigatorFactory = navigatorFactory;
+	}
+	return self;
+}
+
+- (DRYNavigationDescriptor *)_createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error {
+    Class navigatorClass = [_navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier ];
+    return [DRYNavigationDescriptor descriptorWithNavigatorClass:navigatorClass parameters:parameters];
+}
+
+- (void)_navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
+	if(!descriptor.navigatorClass){
+        [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigationDescriptorMissingNavigatorError]];
+        return;
     }
-    return self;
-}
-
-- (UIViewController *)rootViewControllerForFlow:(id)flowIdentifier {
-    return [_navigationHelper rootViewControllerForFlow:flowIdentifier];
-}
-
-- (void)navigateFromViewController:(UIViewController *)viewController withIdentifier:(NSString *)identifier withUserInfo:(NSDictionary *) userInfo  {
-    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"%@From:withUserInfo:", identifier]);
-    if ([_navigationHelper respondsToSelector:sel]) {
-        IMP imp = [_navigationHelper methodForSelector:sel];
-        void (*func)(id, SEL, UIViewController *, NSDictionary *) = (void *) imp;
-        func(_navigationHelper, sel, viewController, userInfo);
+    id <DRYNavigator> navigator = [_navigatorFactory navigatorForClass:descriptor.navigatorClass];
+	if (!navigator) {
+        [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigatorCreationError]];
+        return;
     }
+
+    if (![navigator conformsToProtocol:@protocol(DRYNavigator)] || ![navigator respondsToSelector:@selector(navigateWithParameters:hostViewController:errorHandler:successHandler:)]) {
+        [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigatorImplementationError]];
+        return;
+    }
+
+    [self _navigateWhenAllowedWithDescriptor:descriptor hostViewController:hostViewController navigator:navigator errorHandler:errorHandler successHandler:successHandler];
 }
 
-- (void)unwindViewController:(UIViewController *)viewController {
-    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"unwindFrom%@:", NSStringFromClass([viewController class])]);
-    if ([_navigationHelper respondsToSelector:sel]) {
-        IMP imp = [_navigationHelper methodForSelector:sel];
-        void (*func)(id, SEL, UIViewController *) = (void *) imp;
-        func(_navigationHelper, sel, viewController);
+- (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
+    NSError *error;
+    DRYNavigationDescriptor *descriptor = [self _createNavigationDescriptorWithNavigationIdentifier:identifier parameters:parameters error:&error];
+    if (error) {
+        [self _callErrorHandlerBlock:errorHandler error:error];
     } else {
-        UIViewController *presenter = viewController.presentingViewController;
-        [presenter dismissViewControllerAnimated:YES completion:^{
-            SEL unwindSelector =  NSSelectorFromString([NSString stringWithFormat:@"didDismiss%@:toPresenter:", NSStringFromClass([viewController class])]);
-            if ([_navigationHelper respondsToSelector:unwindSelector]) {
-                IMP imp = [_navigationHelper methodForSelector:unwindSelector];
-                void (*func)(id, SEL, UIViewController *, UIViewController *) = (void *) imp;
-                func(_navigationHelper, sel, viewController, presenter);
-            }
-        }];
+        [self _navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
     }
+}
+
+#pragma mark - Private Helpers
+
+- (void)_callErrorHandlerBlock:(DRYNavigationErrorHandler)errorHandler error:(NSError *)error {
+    if (errorHandler) {
+        errorHandler(error);
+    }
+}
+- (void)_callSuccessHandlerBlock:(DRYNavigationSuccessHandler)successHandler {
+    if (successHandler) {
+        successHandler();
+    }
+}
+
+- (void)_navigateWhenAllowedWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController navigator:(id <DRYNavigator>)navigator errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
+	if([navigator conformsToProtocol:@protocol(DRYSecureNavigator)] && [navigator respondsToSelector:@selector(hasAccessWithParameters:errorHandler:successHandler:)]){
+		[((id<DRYSecureNavigator>) navigator) hasAccessWithParameters:descriptor.parameters errorHandler:^(NSError *error) {
+			[self _callErrorHandlerBlock:errorHandler error:error?: [NSError dryNoAccessToNavigationPathError]];
+		}                                              successHandler:^{
+            [self _navigateWithDescriptor:descriptor hostViewController:hostViewController navigator:navigator errorHandler:errorHandler succesHandler:successHandler];
+		}];
+	} else {
+        [self _navigateWithDescriptor:descriptor hostViewController:hostViewController navigator:navigator errorHandler:errorHandler succesHandler:successHandler];
+	}
+}
+
+- (void)_navigateWithDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController navigator:(id <DRYNavigator>)navigator errorHandler:(DRYNavigationErrorHandler)errorHandler succesHandler:(DRYNavigationSuccessHandler)succesHandler {
+    [navigator navigateWithParameters:descriptor.parameters
+                   hostViewController:hostViewController
+                         errorHandler:^(NSError *error) {
+                             [self _callErrorHandlerBlock:errorHandler error:[NSError dryCanNotNavigateError]];
+                         }
+                       successHandler:^{
+                           [self _callSuccessHandlerBlock:succesHandler];
+                       }];
 }
 
 @end

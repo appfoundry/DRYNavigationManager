@@ -7,5 +7,6 @@ end
 
 target "DRYNavigationManagerDemoTests" do
   pod 'OCMockito'
+  pod 'OCHamcrest'
 end
 

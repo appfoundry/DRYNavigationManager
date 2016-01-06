@@ -7,12 +7,13 @@
 //
 
 #import "ModalViewController.h"
-#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "DRYBaseNavigationManager.h"
 #import "UIViewController+Reliant.h"
+#import "NavigationConstants.h"
 
 @interface ModalViewController ()
 
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+@property (nonatomic, weak) DRYBaseNavigationManager *navigationManager;
 
 @end
 
@@ -21,11 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self injectSelf];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     self.label.text = @"Tap to close!";
 }
 
 - (void)didTapView:(UIView *)view {
-    [_navigationManager unwindViewController:self];
+    [_navigationManager navigateWithNavigationIdentifier:CLOSE_MODAL_VIEW_CONTROLLER parameters:nil hostViewController:self errorHandler:^(NSError *error) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.userInfo[@"accessMessage"] delegate:nil cancelButtonTitle:@"Alright" otherButtonTitles:nil];
+		[alertView show];
+	} successHandler:nil];
 }
 
 @end

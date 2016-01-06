@@ -7,13 +7,13 @@
 //
 
 #import <DRYNavigationManager/DRYNavigationManager.h>
-
 #import "MainViewController.h"
 #import "UIViewController+Reliant.h"
+#import "NavigationConstants.h"
 
 @interface MainViewController ()
 
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+@property (nonatomic, weak) DRYBaseNavigationManager *navigationManager;
 @property (nonatomic, strong) NSArray *menu;
 
 @end
@@ -22,9 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self injectSelf];
     
-    self.menu = [[NSArray alloc] initWithObjects: @"Partner", @"Chap", @"Buddy", nil];
+    self.menu = @[@"Partner", @"Chap", @"Buddy"];
     
     self.title = @"Main";
 }
@@ -45,15 +46,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = self.menu[indexPath.row];
+    cell.textLabel.text = self.menu[(NSUInteger) indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *selectedText = self.menu[indexPath.row];
+    NSString *selectedText = self.menu[(NSUInteger) indexPath.row];
     NSLog(@"selected row with value %@", selectedText);
-    [_navigationManager navigateFromViewController:self withIdentifier:@"toDetail" withUserInfo:@{@"selectedName": selectedText}];
-
+	[_navigationManager navigateWithNavigationIdentifier:TO_HELLO_VIEW_IDENTIFIER parameters:@{@"selectedName": selectedText} hostViewController:self errorHandler:nil successHandler:nil];
     self.helloSayer.text = selectedText; // goes to nil if not iPad
 }
 

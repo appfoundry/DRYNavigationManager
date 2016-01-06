@@ -1,14 +1,14 @@
+////
+////  AppIpadNavigationHelper.h
+////  navigation-manager-bigbang
+////
+////  Created by Bart Vandeweerdt on 25/05/14.
+////  Copyright (c) 2014 AppFoundry. All rights reserved.
+////
 //
-//  AppIpadNavigationHelper.h
-//  navigation-manager-bigbang
+//#import <Foundation/Foundation.h>
+//#import "DRYNavigationHelper.h"
 //
-//  Created by Bart Vandeweerdt on 25/05/14.
-//  Copyright (c) 2014 AppFoundry. All rights reserved.
+//@interface AppIpadNavigationHelper : NSObject<DRYNavigationHelper>
 //
-
-#import <Foundation/Foundation.h>
-#import "DRYNavigationHelper.h"
-
-@interface AppIpadNavigationHelper : NSObject<DRYNavigationHelper>
-
-@end
+//@end

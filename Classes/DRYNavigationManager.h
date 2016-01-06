@@ -1,18 +1,14 @@
 //
-// Created by Michael Seghers on 23/05/14.
-// Copyright (c) 2014 AppFoundry. All rights reserved.
+//  DRYNavigationManager.h
+//  DRYNavigationManagerDemo
+//
+//  Created by Joris Dubois on 16/12/15.
+//
 //
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-
-@class MainViewController;
-
-@protocol DRYNavigationManager <NSObject>
-
-- (UIViewController *)rootViewControllerForFlow:(id)flowIdentifier;
-
-- (void)navigateFromViewController:(UIViewController *)controller withIdentifier:(NSString *)identifier withUserInfo:(NSDictionary *)userInfo;
-- (void)unwindViewController:(UIViewController *)controller;
-
-@end
+#import "DRYBaseNavigationManager.h"
+#import "DRYNavigator.h"
+#import "DRYNavigationDescriptor.h"
+#import "DRYNavigationTranslationDataSource.h"
+#import "NSError+DRYNavigationManager.h"
+#import "DRYNavigatorFactory.h"

@@ -3,16 +3,14 @@
 // Copyright (c) 2014 AppFoundry. All rights reserved.
 //
 
-#import <DRYNavigationManager/DRYNavigationManager.h>
-
+#import "DRYBaseNavigationManager.h"
 #import "HelloViewController.h"
 #import "UIViewController+Reliant.h"
+#import "NavigationConstants.h"
 
-@interface HelloViewController () {
+@interface HelloViewController ()
 
-}
-
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+@property (nonatomic, weak) DRYBaseNavigationManager *navigationManager;
 
 @end
 
@@ -21,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self injectSelf];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     self.label.text = [NSString stringWithFormat:@"Howdy %@!", self.text];
     self.title = @"Hello";
 
@@ -29,7 +29,7 @@
 }
 
 - (void)goFurther:(id)goFurther {
-    [_navigationManager navigateFromViewController:self withIdentifier:@"toTab" withUserInfo:nil];
+	[_navigationManager navigateWithNavigationIdentifier:TO_TAB_BAR_VIEW_CONTROLLER parameters:nil hostViewController:self errorHandler:nil successHandler:nil];
 }
 
 - (void)setText:(NSString *)text {

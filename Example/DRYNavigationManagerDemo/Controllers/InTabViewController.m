@@ -4,12 +4,13 @@
 //
 
 #import "InTabViewController.h"
-#import <DRYNavigationManager/DRYNavigationManager.h>
+#import "DRYBaseNavigationManager.h"
 #import "UIViewController+Reliant.h"
+#import "NavigationConstants.h"
 
 @interface InTabViewController ()
 
-@property (nonatomic, weak) id<DRYNavigationManager> navigationManager;
+@property (nonatomic, weak) DRYBaseNavigationManager *navigationManager;
 
 @end
 
@@ -17,13 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self injectSelf];
      self.label.text = [NSString stringWithFormat:@"Tab %lu", [self.tabBarController.viewControllers indexOfObject:self] + 1];
 
 }
 
 - (void)didTapView:(UIView *)view {
-    [_navigationManager navigateFromViewController:self withIdentifier:@"toModal" withUserInfo:nil];
+	[_navigationManager navigateWithNavigationIdentifier:TO_MODAL_VIEW_CONTROLLER parameters:nil hostViewController:self errorHandler:nil successHandler:nil];
 }
 
 @end

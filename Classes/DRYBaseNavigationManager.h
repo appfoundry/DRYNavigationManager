@@ -1,17 +1,24 @@
 //
-// Created by Michael Seghers on 23/05/14.
-// Copyright (c) 2014 AppFoundry. All rights reserved.
+// Created by Jens Goeman on 24/11/15.
+// Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "DRYNavigationManager.h"
+@import Foundation;
+@import UIKit;
 
-@protocol DRYNavigationHelper;
+#import "DRYNavigator.h"
 
+@protocol DRYNavigationTranslationDataSource;
+@class DRYNavigationDescriptor;
 
-@interface DRYBaseNavigationManager : NSObject<DRYNavigationManager>
+@protocol DRYNavigatorFactory;
 
-- (instancetype) initWithNavigationHelper:(NSObject<DRYNavigationHelper> *) navigationHelper;
+@interface DRYBaseNavigationManager : NSObject
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource;
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id <DRYNavigatorFactory>)navigatorFactory;
+
+- (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
 
 @end
