@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-#define LOGIN_FLOW_IDENTIFIER @"loginFlow"
 #define MAIN_FLOW_IDENTIFIER @"mainFlow"
 
 #define TO_HELLO_VIEW_IDENTIFIER @"toHello"

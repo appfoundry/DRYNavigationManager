@@ -22,7 +22,6 @@
 		27462D761934980C00D74327 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27462D741934980C00D74327 /* InfoPlist.strings */; };
 		2780199E199A5149005A4449 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2780199D199A5149005A4449 /* ModalViewController.m */; };
 		27B6C78C1D096B9E00622E7C /* MainFlowViewControllerInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C78B1D096B9E00622E7C /* MainFlowViewControllerInitializer.m */; };
-		27B6C78F1D096BB400622E7C /* LoginFlowViewControllerInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B6C78E1D096BB400622E7C /* LoginFlowViewControllerInitializer.m */; };
 		3323F35A32E6C6D9B4CEA5CF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323FF19E16D27FE4F2799CF /* BaseViewController.m */; };
 		3323F89939ACB75169417017 /* HelloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323F8D77D683D31464814AC /* HelloViewController.m */; };
 		3323F8BCEDB023E3F0057374 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323F37BAE7BB9AE682D2775 /* MainViewController.m */; };
@@ -72,8 +71,6 @@
 		2780199D199A5149005A4449 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
 		27B6C78A1D096B9E00622E7C /* MainFlowViewControllerInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainFlowViewControllerInitializer.h; sourceTree = "<group>"; };
 		27B6C78B1D096B9E00622E7C /* MainFlowViewControllerInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainFlowViewControllerInitializer.m; sourceTree = "<group>"; };
-		27B6C78D1D096BB400622E7C /* LoginFlowViewControllerInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFlowViewControllerInitializer.h; sourceTree = "<group>"; };
-		27B6C78E1D096BB400622E7C /* LoginFlowViewControllerInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginFlowViewControllerInitializer.m; sourceTree = "<group>"; };
 		3323F04A91AC6B1816865968 /* InTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InTabViewController.h; sourceTree = "<group>"; };
 		3323F37BAE7BB9AE682D2775 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3323F45CAF2E3C16A85765AE /* InTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InTabViewController.m; sourceTree = "<group>"; };
@@ -219,8 +216,6 @@
 			children = (
 				27B6C78A1D096B9E00622E7C /* MainFlowViewControllerInitializer.h */,
 				27B6C78B1D096B9E00622E7C /* MainFlowViewControllerInitializer.m */,
-				27B6C78D1D096BB400622E7C /* LoginFlowViewControllerInitializer.h */,
-				27B6C78E1D096BB400622E7C /* LoginFlowViewControllerInitializer.m */,
 			);
 			path = FlowViewControllerInitializer;
 			sourceTree = "<group>";
@@ -506,7 +501,6 @@
 				3323F89939ACB75169417017 /* HelloViewController.m in Sources */,
 				A90F116F967DF9F00B3A17E2 /* AppConfiguration.m in Sources */,
 				A90F1019491D152041282487 /* DefaultNavigationTranslationDataSource.m in Sources */,
-				27B6C78F1D096BB400622E7C /* LoginFlowViewControllerInitializer.m in Sources */,
 				A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigator.m in Sources */,
 				A90F18A50D973B66954003F4 /* DemoNavigatorFactory.m in Sources */,
 				A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigator.m in Sources */,

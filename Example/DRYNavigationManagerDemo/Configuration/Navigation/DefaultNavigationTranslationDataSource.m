@@ -9,7 +9,6 @@
 #import "TabBarControllerNavigator.h"
 #import "ModalViewControllerNavigator.h"
 #import "CloseModalViewControllerNavigator.h"
-#import "LoginFlowViewControllerInitializer.h"
 #import "MainFlowViewControllerInitializer.h"
 
 @implementation DefaultNavigationTranslationDataSource {
@@ -27,7 +26,6 @@
 				CLOSE_MODAL_VIEW_CONTROLLER : CloseModalViewControllerNavigator.class
 		};
         _flowTranslationDataSource = @{
-                LOGIN_FLOW_IDENTIFIER : LoginFlowViewControllerInitializer.class,
                 MAIN_FLOW_IDENTIFIER : MainFlowViewControllerInitializer.class
         };
 	}
