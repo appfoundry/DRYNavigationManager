@@ -8,7 +8,6 @@
 
 #import "ModalViewController.h"
 #import "DRYBaseNavigationManager.h"
-#import "UIViewController+Reliant.h"
 #import "NavigationConstants.h"
 
 @interface ModalViewController ()
@@ -21,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self injectSelf];
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.label.text = @"Tap to close!";

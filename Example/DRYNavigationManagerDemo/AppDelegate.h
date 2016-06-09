@@ -12,5 +12,4 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)performInjectionOn:(id)object;
 @end

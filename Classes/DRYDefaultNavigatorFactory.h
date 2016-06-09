@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DRYNavigatorFactory.h"
+#import "DRYViewControllerInitializerFactory.h"
 
-@interface DRYDefaultNavigatorFactory : NSObject<DRYNavigatorFactory>
+@interface DRYDefaultNavigatorFactory : NSObject<DRYNavigatorFactory, DRYViewControllerInitializerFactory>
 @end

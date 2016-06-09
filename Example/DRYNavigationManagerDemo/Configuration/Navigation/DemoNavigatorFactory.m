@@ -9,6 +9,7 @@
 
 @interface DemoNavigatorFactory () {
 	NSMutableDictionary *_navigatorRegister;
+    
 }
 @end
 
@@ -28,7 +29,11 @@
 }
 
 - (id<DRYNavigator>)navigatorForClass:(Class)className {
-	return _navigatorRegister[className];
+    return _navigatorRegister[NSStringFromClass(className)] ?: [[className alloc] init];
+}
+
+- (id<DRYViewControllerInitializer>)viewControllerInitializerForClass:(Class)className {
+    return [[className alloc] init];
 }
 
 @end

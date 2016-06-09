@@ -9,9 +9,12 @@
 #import "TabBarControllerNavigator.h"
 #import "ModalViewControllerNavigator.h"
 #import "CloseModalViewControllerNavigator.h"
+#import "LoginFlowViewControllerInitializer.h"
+#import "MainFlowViewControllerInitializer.h"
 
 @implementation DefaultNavigationTranslationDataSource {
 	NSDictionary<NSString *, Class> *_navigationTranslationDataSource;
+    NSDictionary<NSString *, Class> *_flowTranslationDataSource;
 }
 
 - (instancetype)init {
@@ -23,12 +26,20 @@
 				TO_MODAL_VIEW_CONTROLLER : ModalViewControllerNavigator.class,
 				CLOSE_MODAL_VIEW_CONTROLLER : CloseModalViewControllerNavigator.class
 		};
+        _flowTranslationDataSource = @{
+                LOGIN_FLOW_IDENTIFIER : LoginFlowViewControllerInitializer.class,
+                MAIN_FLOW_IDENTIFIER : MainFlowViewControllerInitializer.class
+        };
 	}
 	return self;
 }
 
 - (Class)classNameForNavigationIdentifier:(NSString *)navigationIdentifier {
 	return _navigationTranslationDataSource[navigationIdentifier];
+}
+
+- (Class)classNameForFlowIdentifier:(NSString *)flowIdentifier {
+    return _flowTranslationDataSource[flowIdentifier];
 }
 
 @end

@@ -5,7 +5,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DRYNavigationTranslationDataSource.h"
+#import "DRYFlowTranslationDataSource.h"
 
-@interface DefaultNavigationTranslationDataSource : NSObject<DRYNavigationTranslationDataSource>
+@interface DefaultNavigationTranslationDataSource : NSObject<DRYNavigationTranslationDataSource, DRYFlowTranslationDataSource>
 
 @end

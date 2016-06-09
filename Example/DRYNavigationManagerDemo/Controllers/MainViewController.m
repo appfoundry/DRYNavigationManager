@@ -8,7 +8,6 @@
 
 #import <DRYNavigationManager/DRYNavigationManager.h>
 #import "MainViewController.h"
-#import "UIViewController+Reliant.h"
 #import "NavigationConstants.h"
 
 @interface MainViewController ()
@@ -23,10 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self injectSelf];
-    
     self.menu = @[@"Partner", @"Chap", @"Buddy"];
-    
     self.title = @"Main";
 }
 
@@ -53,7 +49,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *selectedText = self.menu[(NSUInteger) indexPath.row];
     NSLog(@"selected row with value %@", selectedText);
-	[_navigationManager navigateWithNavigationIdentifier:TO_HELLO_VIEW_IDENTIFIER parameters:@{@"selectedName": selectedText} hostViewController:self errorHandler:nil successHandler:nil];
+	[self.navigationManager navigateWithNavigationIdentifier:TO_HELLO_VIEW_IDENTIFIER parameters:@{@"selectedName": selectedText} hostViewController:self errorHandler:nil successHandler:nil];
     self.helloSayer.text = selectedText; // goes to nil if not iPad
 }
 

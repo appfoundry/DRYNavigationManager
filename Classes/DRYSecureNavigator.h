@@ -2,7 +2,7 @@
 // Created by Joris Dubois on 04/01/16.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 #import "DRYNavigator.h"
 
 @protocol DRYSecureNavigator <DRYNavigator>
