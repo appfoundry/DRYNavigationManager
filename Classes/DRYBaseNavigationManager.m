@@ -113,16 +113,16 @@
     if (error) {
         [self _callErrorHandlerBlock:errorHandler error:error];
     } else {
-        [self _navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
+        [self navigateWithNavigationDescriptor:descriptor hostViewController:hostViewController errorHandler:errorHandler successHandler:successHandler];
     }
 }
 
 - (DRYNavigationDescriptor *)_createNavigationDescriptorWithNavigationIdentifier:(NSString *)navigationIdentifier parameters:(NSDictionary *)parameters error:(NSError **)error {
-    Class navigatorClass = [self.navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier ];
+    Class navigatorClass = [self.navigationTranslationDataSource classNameForNavigationIdentifier:navigationIdentifier];
     return [DRYNavigationDescriptor descriptorWithNavigatorClass:navigatorClass parameters:parameters];
 }
 
-- (void)_navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
+- (void)navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler {
     if(!descriptor.navigatorClass){
         [self _callErrorHandlerBlock:errorHandler error:[NSError dryNavigationDescriptorMissingNavigatorError]];
         return;

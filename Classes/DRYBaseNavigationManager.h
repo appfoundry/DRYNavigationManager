@@ -17,6 +17,7 @@
 
 - (UIViewController *)initialViewControllerForFlowWithIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters error:(NSError **)error;
 - (void)navigateWithNavigationIdentifier:(NSString *)identifier parameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler;
+- (void)navigateWithNavigationDescriptor:(DRYNavigationDescriptor *)descriptor hostViewController:(UIViewController *)hostViewController errorHandler:(void (^)(NSError *error))errorHandler successHandler:(void (^)())successHandler;
 
 @end
 
