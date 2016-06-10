@@ -22,6 +22,8 @@
 
 @interface DRYBaseNavigationManager : NSObject <DRYNavigationManager>
 
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource;
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id<DRYNavigatorFactory>)navigatorFactory;
 - (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource flowTranslationDataSource:(id <DRYFlowTranslationDataSource>)flowTranslationDataSource;
 - (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource flowTranslationDataSource:(id <DRYFlowTranslationDataSource>)flowTranslationDataSource viewControllerInitializerFactory:(id <DRYViewControllerInitializerFactory>)viewControllerInitializerFactory;
 - (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource flowTranslationDataSource:(id <DRYFlowTranslationDataSource>)flowTranslationDataSource navigatorFactory:(id <DRYNavigatorFactory>)navigatorFactory;
