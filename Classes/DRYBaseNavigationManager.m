@@ -10,6 +10,7 @@
 #import "NSError+DRYNavigationManager.h"
 #import "DRYNavigatorFactory.h"
 #import "DRYDefaultNavigatorFactory.h"
+#import "DRYDefaultDataSource.h"
 #import "DRYSecureNavigator.h"
 
 @interface DRYBaseNavigationManager ()
@@ -23,6 +24,14 @@
 @end
 
 @implementation DRYBaseNavigationManager
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource {
+    return [self initWithNavigationTranslationDataSource:navigationTranslationDataSource flowTranslationDataSource:[[DRYDefaultDataSource alloc] init] commonFactory:[[DRYDefaultNavigatorFactory alloc] init]];
+}
+
+- (instancetype)initWithNavigationTranslationDataSource:(id <DRYNavigationTranslationDataSource>)navigationTranslationDataSource navigatorFactory:(id<DRYNavigatorFactory>)navigatorFactory {
+    return [self initWithNavigationTranslationDataSource:navigatorFactory flowTranslationDataSource:[[DRYDefaultDataSource alloc] init] navigatorFactory:navigatorFactory viewControllerInitializerFactory:[[DRYDefaultNavigatorFactory alloc] init]];
+}
 
 - (instancetype)initWithNavigationTranslationDataSource:(id<DRYNavigationTranslationDataSource>)navigationTranslationDataSource flowTranslationDataSource:(id<DRYFlowTranslationDataSource>)flowTranslationDataSource {
     return [self initWithNavigationTranslationDataSource:navigationTranslationDataSource flowTranslationDataSource:flowTranslationDataSource commonFactory:[[DRYDefaultNavigatorFactory alloc] init]];

@@ -28,7 +28,6 @@
 		3323FADD33E466CD5F237435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323F562E1FD3967134F56F5 /* AppDelegate.m */; };
 		3323FBDF850FF2B5636F21CF /* InTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323F45CAF2E3C16A85765AE /* InTabViewController.m */; };
 		3AA37BE9F769C2634B4F6C27 /* libPods-DRYNavigationManagerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F05633284964819992ED1B1 /* libPods-DRYNavigationManagerDemo.a */; };
-		A90F1019491D152041282487 /* DefaultNavigationTranslationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */; };
 		A90F116F967DF9F00B3A17E2 /* AppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F1FC742DA735DDAC71FE5 /* AppConfiguration.m */; };
 		A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F196903A19DFD957484D3 /* TabBarControllerNavigator.m */; };
 		A90F11E1F406B1549FE0D4F6 /* CloseModalViewControllerNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90F11A8254CEC2015C95CD3 /* CloseModalViewControllerNavigator.m */; };
@@ -97,10 +96,8 @@
 		A90F1A6CABED020EA0EDEC63 /* NavigationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationConstants.h; sourceTree = "<group>"; };
 		A90F1B49212246C4117F0696 /* DemoNavigatorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoNavigatorFactory.h; sourceTree = "<group>"; };
 		A90F1C960E17D619FF994413 /* ModalViewControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewControllerNavigator.h; sourceTree = "<group>"; };
-		A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultNavigationTranslationDataSource.m; sourceTree = "<group>"; };
 		A90F1D7624041A038CC8D03B /* CloseModalViewControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseModalViewControllerNavigator.h; sourceTree = "<group>"; };
 		A90F1DD4CA9EFD7570569ECE /* TabBarControllerNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerNavigator.h; sourceTree = "<group>"; };
-		A90F1F6F17038D93916234A5 /* DefaultNavigationTranslationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultNavigationTranslationDataSource.h; sourceTree = "<group>"; };
 		A90F1FC742DA735DDAC71FE5 /* AppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfiguration.m; sourceTree = "<group>"; };
 		C1A56314D3A86E1D530304FA /* DRYNavigationManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRYNavigationManagerTests.h; sourceTree = "<group>"; };
 		C1A56D14FEB4E97ED7B2B1E3 /* DRYBaseNavigationManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRYBaseNavigationManagerTests.m; sourceTree = "<group>"; };
@@ -260,8 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				27B6C7891D096B6600622E7C /* FlowViewControllerInitializer */,
-				A90F1F6F17038D93916234A5 /* DefaultNavigationTranslationDataSource.h */,
-				A90F1D19A644603AA6F2138C /* DefaultNavigationTranslationDataSource.m */,
 				A90F1EF8C0698E9CEA792943 /* HelloViewNavigation */,
 				A90F1A6CABED020EA0EDEC63 /* NavigationConstants.h */,
 				A90F16E3B07F9BFD239144BC /* DemoNavigatorFactory.m */,
@@ -500,7 +495,6 @@
 				3323FBDF850FF2B5636F21CF /* InTabViewController.m in Sources */,
 				3323F89939ACB75169417017 /* HelloViewController.m in Sources */,
 				A90F116F967DF9F00B3A17E2 /* AppConfiguration.m in Sources */,
-				A90F1019491D152041282487 /* DefaultNavigationTranslationDataSource.m in Sources */,
 				A90F1D27F8ECFA10B638F314 /* HelloViewControllerNavigator.m in Sources */,
 				A90F18A50D973B66954003F4 /* DemoNavigatorFactory.m in Sources */,
 				A90F11C1B20F94F56C5C34E2 /* TabBarControllerNavigator.m in Sources */,
