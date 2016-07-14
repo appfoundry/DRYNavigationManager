@@ -6,6 +6,6 @@
 #import <Foundation/Foundation.h>
 #import <DRYNavigationManager/DRYNavigationManager.h>
 
-@interface DemoNavigatorFactory : NSObject<DRYNavigatorFactory>
+@interface DemoNavigatorFactory : NSObject<DRYNavigatorFactory, DRYViewControllerInitializerFactory>
 
 @end

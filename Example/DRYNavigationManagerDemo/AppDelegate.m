@@ -7,35 +7,27 @@
 //
 
 #import <Reliant/Reliant.h>
-#import "DRYBaseNavigationManager.h"
+#import <DRYNavigationManager/DRYNavigationManager.h>
 #import "AppDelegate.h"
 #import "AppConfiguration.h"
-#import "MainViewController.h"
+#import "NavigationConstants.h"
 
-@interface AppDelegate () {
-    OCSObjectContext *_context;
-}
+@interface AppDelegate ()
+
+@property (nonatomic, strong) id<DRYNavigationManager>navigationManager;
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    id <OCSConfigurator> configurator = [[OCSConfiguratorFromClass alloc] initWithClass:[AppConfiguration class]];
-    _context = [[OCSObjectContext alloc] initWithConfigurator:configurator];
-    [_context start];
-
-	MainViewController *mainViewController = [[MainViewController alloc] init];
-	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [self ocsBootstrapAndBindObjectContextWithConfiguratorFromClass:[AppConfiguration class]];
+    [self ocsInject];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = [self.navigationManager initialViewControllerForFlowWithIdentifier:MAIN_FLOW_IDENTIFIER parameters:nil error:nil];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)performInjectionOn:(id)object {
-    [_context performInjectionOn:object];
 }
 
 @end

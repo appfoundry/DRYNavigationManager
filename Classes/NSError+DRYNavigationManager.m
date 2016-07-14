@@ -53,6 +53,22 @@ NSString *const kDRYNavigationManagerErrorDomain = @"be.appfoundry.errorDomain.D
                                              userInfo:nil];
 }
 
+
++ (NSError *)dryViewControlllerInitializerCreationError {
+    return [NSError _dryErrorWithLocalizedDescription:@"Can not find view controller initializer"
+                                      localizedReason:@"Your view controller initializer factor could notfind a proper view controller initializer"
+                                            errorType:DRYNavigationManagerErrorViewControllerInitializerCreation
+                                             userInfo:nil];
+}
+
++ (NSError *)dryFlowNotFoundError {
+    return [NSError _dryErrorWithLocalizedDescription:@"Can not initialize flow"
+                                      localizedReason:@"Your flow data source could not find a proper view controller initializer"
+                                            errorType:DRYNavigationManagerErrorFlowNotFound
+                                             userInfo:nil];
+}
+
+
 #pragma mark - Private helpers
 
 + (NSError *)_dryErrorWithLocalizedDescription:(NSString *)description localizedReason:(NSString *)reason errorType:(DRYNavigationManagerError)error userInfo:(NSDictionary *)userInfo {
