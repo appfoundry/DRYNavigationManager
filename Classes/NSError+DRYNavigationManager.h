@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, DRYNavigationManagerError) {
+    DRYNavigationManagerErrorFlowNotFound = 101,
+    DRYNavigationManagerErrorViewControllerInitializerCreation = 102,
+    
     DRYNavigationManagerErrorNavigatorCreation = 201,
     DRYNavigationManagerErrorNavigatorImplementation = 202,
 
@@ -17,6 +20,8 @@ typedef NS_ENUM(NSInteger, DRYNavigationManagerError) {
 @interface NSError (DRYNavigationManager)
 
 + (NSError *)dryNavigationDescriptorMissingNavigatorError;
++ (NSError *)dryFlowNotFoundError;
++ (NSError *)dryViewControlllerInitializerCreationError;
 
 + (NSError *)dryNavigatorCreationError;
 

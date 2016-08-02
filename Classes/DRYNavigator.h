@@ -3,8 +3,7 @@
 // Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
-@import Foundation;
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 typedef void (^DRYNavigationErrorHandler)(NSError *);
 typedef void (^DRYNavigationSuccessHandler)();

@@ -3,6 +3,7 @@
 // Copyright (c) 2015 AppFoundry. All rights reserved.
 //
 
+#import <Reliant/Reliant.h>
 #import "HelloViewControllerNavigator.h"
 #import "HelloViewController.h"
 
@@ -10,6 +11,7 @@
 
 - (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
 	HelloViewController *helloViewController = [[HelloViewController alloc] init];
+    [helloViewController ocsInject];
 	helloViewController.text = parameters[@"selectedName"];
 	[hostViewController.navigationController pushViewController:helloViewController animated:YES];
 }

@@ -7,12 +7,20 @@
 //
 
 #import "DRYNavigationManagerTests.h"
-#import "DRYNavigatorFactory.h"
+#import "DRYNavigationManager.h"
 #import "DRYDefaultNavigatorFactory.h"
 
-@interface FooClass : NSObject <DRYNavigator>
+@interface FooClass : NSObject
 
 @property (nonatomic) BOOL initCalled;
+
+@end
+
+@interface FooNavigatorClass : FooClass <DRYNavigator>
+
+@end
+
+@interface FooViewControllerInitializeClass : FooClass <DRYViewControllerInitializer>
 
 @end
 
@@ -29,10 +37,15 @@
     _factory = [[DRYDefaultNavigatorFactory alloc] init];
 }
 
--(void)testCallsInitialisation {
-    FooClass *createdInstance = [_factory navigatorForClass:[FooClass class]];
+-(void)testNavigatorForClassCallsInitialisation {
+    FooNavigatorClass *createdInstance = [_factory navigatorForClass:[FooNavigatorClass class]];
     assertThatBool(createdInstance.initCalled, isTrue());
 
+}
+
+- (void)testViewControllerInitializerForClassCallsInitialisation {
+    FooViewControllerInitializeClass *createdInstance = [_factory viewControllerInitializerForClass:[FooViewControllerInitializeClass class]];
+    assertThatBool(createdInstance.initCalled, isTrue());
 }
 
 @end
@@ -46,6 +59,23 @@
     }
 
     return self;
+}
+
+@end
+
+@implementation FooNavigatorClass
+
+- (void)navigateWithParameters:(NSDictionary *)parameters hostViewController:(UIViewController *)hostViewController errorHandler:(DRYNavigationErrorHandler)errorHandler successHandler:(DRYNavigationSuccessHandler)successHandler {
+    
+}
+
+@end
+
+
+@implementation FooViewControllerInitializeClass
+
+- (UIViewController *)viewControllerWithParameters:(NSDictionary *)parameters error:(NSError *__autoreleasing *)error {
+    return nil;
 }
 
 @end

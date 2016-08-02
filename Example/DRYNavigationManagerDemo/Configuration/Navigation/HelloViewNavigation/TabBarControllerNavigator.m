@@ -3,6 +3,7 @@
 // Copyright (c) 2016 AppFoundry. All rights reserved.
 //
 
+#import <Reliant/Reliant.h>
 #import "TabBarControllerNavigator.h"
 #import "InTabViewController.h"
 
@@ -26,6 +27,7 @@
 	NSMutableArray *tabViewControllers = [[NSMutableArray alloc] init];
 	for (int i = 0; i < _tabCount; ++i) {
 		InTabViewController *tabViewController = [[InTabViewController alloc] init];
+        [tabViewController ocsInject];
 		tabViewController.title = @(i+1).stringValue;
 		tabViewControllers[(NSUInteger) i] = tabViewController;
 	}

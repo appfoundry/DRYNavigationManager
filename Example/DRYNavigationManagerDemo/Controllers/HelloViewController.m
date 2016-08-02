@@ -5,7 +5,6 @@
 
 #import "DRYBaseNavigationManager.h"
 #import "HelloViewController.h"
-#import "UIViewController+Reliant.h"
 #import "NavigationConstants.h"
 
 @interface HelloViewController ()
@@ -18,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self injectSelf];
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.label.text = [NSString stringWithFormat:@"Howdy %@!", self.text];

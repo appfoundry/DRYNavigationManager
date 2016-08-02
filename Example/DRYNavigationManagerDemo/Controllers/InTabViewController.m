@@ -5,7 +5,6 @@
 
 #import "InTabViewController.h"
 #import "DRYBaseNavigationManager.h"
-#import "UIViewController+Reliant.h"
 #import "NavigationConstants.h"
 
 @interface InTabViewController ()
@@ -19,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self injectSelf];
      self.label.text = [NSString stringWithFormat:@"Tab %lu", [self.tabBarController.viewControllers indexOfObject:self] + 1];
 
 }
